@@ -60,6 +60,9 @@ submitButton.addEventListener("click", function () {
 // })
 
 function displayBreweries(result) {
+    
+    breweriesContainer.innerHTML = ""
+
     for (let index = 0; index < result.length; index++) {
         let brewery = result[index]
 
@@ -73,7 +76,6 @@ function displayBreweries(result) {
                 </div>
             </div>
         `
-
         breweriesContainer.insertAdjacentHTML('beforeend', breweryItem)
     }
 }
