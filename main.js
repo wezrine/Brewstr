@@ -67,18 +67,45 @@ function displayBreweries(result) {
         let brewery = result[index]
 
         const breweryItem = `
-            <div class="brewery_container">
-                <div class="name_div">${brewery.name}</div>
-                <div class="address_div">${brewery.street} ${brewery.city}, ${abbreviateState(brewery.state)} ${brewery.postal_code}</div>
-                <div class="contact_div">
-                    <a href="${brewery.website_url}" target="_blank">Website</a>
-                    <a href="tel:${brewery.phone}">Phone</a>
+        <div class="col-lg-12 col-md-12">
+        <div class="listing-item-container list-layout" data-marker-id="1">
+            <a href="listings-single-page.html" class="listing-item">
+                
+                <!-- Image -->
+                <div class="listing-item-image">
+                    <img src="images/listing-item-01.jpg" alt="">
+                    <span class="tag">${brewery.brewery_type}</span>
                 </div>
-            </div>
+                
+                <!-- Content -->
+                <div class="listing-item-content">
+
+                    <div class="listing-item-inner">
+                        <h3>${brewery.name}</i></h3>
+                        <span>${brewery.street} ${brewery.city}, ${abbreviateState(brewery.state)} ${brewery.postal_code}</span>
+                    </div>
+
+                    <span class="like-icon"></span>
+                </div>
+            </a>
+        </div>
+        </div>
         `
         breweriesContainer.insertAdjacentHTML('beforeend', breweryItem)
     }
 }
+
+
+
+{/* <div class="brewery_container">
+<div class="name_div">${brewery.name}</div>
+<div class="address_div">${brewery.street} ${brewery.city}, ${abbreviateState(brewery.state)} ${brewery.postal_code}</div>
+<div class="contact_div">
+    <a href="${brewery.website_url}" target="_blank">Website</a>
+    <a href="tel:${brewery.phone}">Phone</a>
+</div>
+</div> */}
+
 
 function abbreviateState(input) {
     const states = [
