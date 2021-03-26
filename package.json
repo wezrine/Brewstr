@@ -1,0 +1,23 @@
+{
+  "name": "breweriesapp",
+  "version": "1.0.0",
+  "description": "App that allows users to search for breweries",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wezrine/BreweriesApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wezrine/BreweriesApp/issues"
+  },
+  "homepage": "https://github.com/wezrine/BreweriesApp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mustache-express": "^1.3.0"
+  }
+}
