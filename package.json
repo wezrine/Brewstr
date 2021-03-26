@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/wezrine/BreweriesApp#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
-    "mustache-express": "^1.3.0"
+    "express-session": "^1.17.1",
+    "mustache-express": "^1.3.0",
+    "pg": "^8.5.1",
+    "sequelize": "^6.6.2"
   }
 }
