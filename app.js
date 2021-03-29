@@ -7,21 +7,25 @@ const pgp = require('pg-promise')
 
 const db =
 
-// const models = require('./models')
-// const { Op } = require('sequelize')
+const models = require('./models')
+const { Op } = require('sequelize')
+const session = require('express-session')
 
 // Mustache Express
 app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 
+const PORT = process.env.PORT || 8080 
+
 // Body Parser
 app.use(express.urlencoded())
 
 // Load CSS & JS
-app.use(express.static('css'))
-app.use(express.static('scripts'))
-app.use(express.static('images'))
+app.use("/css",express.static('css'))
+app.use("/scripts",express.static('scripts'))
+app.use("/images",express.static('images'))
+app.use("/fonts",express.static('fonts'))
 
 // Setting up session
 app.use(session({
@@ -63,6 +67,8 @@ app.get('/listings', (req, res) => {
 app.get('/brewery_details', (req, res) => {
     res.render('brewery_details')
 })
+
+// Load reviews page and adds a review
 
 // Launch Server
 app.listen(3000, () => {

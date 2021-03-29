@@ -9,8 +9,8 @@
 
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/main-color.css" id="colors">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/main-color.css" id="colors">
 
 </head>
 
@@ -21,10 +21,10 @@
 
 <!-- Header Container
 ================================================== -->
-<header id="header-container" class="fixed fullwidth">
+<header id="header-container">
 
 	<!-- Header -->
-	<div id="header" class="not-sticky">
+	<div id="header">
 		<div class="container">
 			
 			<!-- Left Side Content -->
@@ -32,7 +32,7 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="index.html"><img src="/logo.png" alt=""></a>
+					<a href="index.html"><img src="images/logo.png" alt=""></a>
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -48,48 +48,19 @@
 				<nav id="navigation" class="style-1">
 					<ul id="responsive">
 
-						<li><a href="#">User</a>
+						<li><a href="#">Home</a>
 							<ul>
-								<li><a href="dashboard-my-listings.html">My Breweries</a></li>
-								<li><a href="dashboard-add-listing.html">My Reviews</a></li>
-								<li><a href="dashboard-my-profile.html">My Profile</a></li>
+								<li><a href="index.html">Home 1 (Modern)</a></li>
 							</ul>
 						</li>
 
-						<li><a href="#">Pages</a>
-							<div class="mega-menu mobile-styles three-columns">
+						<li><a href="#">User</a>
+							<ul>
+								<li><a href="dashboard-reviews.html">Reviews</a></li>
+								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
+								<li><a href="dashboard-my-profile.html">My Profile</a></li>
 
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">Pages #1</li>
-											<li><a href="pages-user-profile.html"><i class="sl sl-icon-user"></i> User Profile</a></li>
-											<li><a href="pages-booking.html"><i class="sl sl-icon-check"></i> Booking Page</a></li>
-											<li><a href="pages-add-listing.html"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
-											<li><a href="pages-blog.html"><i class="sl sl-icon-docs"></i> Blog</a></li>
-										</ul>
-									</div>
-		
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">Pages #2</li>
-											<li><a href="pages-contact.html"><i class="sl sl-icon-envelope-open"></i> Contact</a></li>
-											<li><a href="pages-coming-soon.html"><i class="sl sl-icon-hourglass"></i> Coming Soon</a></li>
-											<li><a href="pages-404.html"><i class="sl sl-icon-close"></i> 404 Page</a></li>
-											<li><a href="pages-masonry-filtering.html"><i class="sl sl-icon-equalizer"></i> Masonry Filtering</a></li>
-										</ul>
-									</div>
-
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">Other</li>
-											<li><a href="pages-elements.html"><i class="sl sl-icon-settings"></i> Elements</a></li>
-											<li><a href="pages-pricing-tables.html"><i class="sl sl-icon-tag"></i> Pricing Tables</a></li>
-											<li><a href="pages-typography.html"><i class="sl sl-icon-pencil"></i> Typography</a></li>
-											<li><a href="pages-icons.html"><i class="sl sl-icon-diamond"></i> Icons</a></li>
-										</ul>
-									</div>
-									
-							</div>
+							</ul>
 						</li>
 						
 					</ul>
@@ -209,262 +180,256 @@
 <!-- Header Container / End -->
 
 
-<!-- Content
+<!-- Titlebar
 ================================================== -->
-<div class="fs-container">
+<div id="titlebar" class="gradient">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
 
-	<div class="fs-inner-container content">
-		<div class="fs-content">
+				<h2>Breweries</h2><span>Enter text here</span>
 
-			<!-- Search -->
-			<section class="search">
-
-				<div class="row">
-					<div class="col-md-12">
-
-							<!-- Row With Forms -->
-							<div class="row with-forms">
-
-								<!-- Main Search Input -->
-								<div class="col-fs-6">
-									<div class="input-with-icon">
-										<i class="sl sl-icon-magnifier"></i>
-										<input type="text" placeholder="What are you looking for?" value=""/>
-									</div>
-								</div>
-
-								<!-- Main Search Input -->
-								<div class="col-fs-6">
-									<div class="input-with-icon location">
-										<div>
-											<input type="text" placeholder="City" id="cityTextBox">
-										</div>
-										<a href="#"><i class="fa fa-map-marker"></i></a>
-									</div>
-								</div>
-
-								<!-- Main Search Input -->
-								<div class="col-fs-6">
-									<div class="input-with-icon location">
-										<div>
-											<select id="stateDropdown">
-												<option value="" disabled selected>State</option>
-												<option value="alabama">Alabama</option>
-												<option value="alaska">Alaska</option>
-												<option value="arizona">Arizona</option>
-												<option value="arkansas">Arkansas</option>
-												<option value="california">California</option>
-												<option value="colorado">Colorado</option>
-												<option value="connecticut">Connecticut</option>
-												<option value="delaware">Delaware</option>
-												<option value="district_of_columbia">District of Columbia</option>
-												<option value="florida">Florida</option>
-												<option value="georgia">Georgia</option>
-												<option value="hawaii">Hawaii</option>
-												<option value="idaho">Idaho</option>
-												<option value="illinois">Illinois</option>
-												<option value="indiana">Indiana</option>
-												<option value="iowa">Iowa</option>
-												<option value="kansas">Kansas</option>
-												<option value="kentucky">Kentucky</option>
-												<option value="louisiana">Louisiana</option>
-												<option value="maine">Maine</option>
-												<option value="maryland">Maryland</option>
-												<option value="massachusetts">Massachusetts</option>
-												<option value="michigan">Michigan</option>
-												<option value="minnesota">Minnesota</option>
-												<option value="mississippi">Mississippi</option>
-												<option value="missouri">Missouri</option>
-												<option value="montana">Montana</option>
-												<option value="nebraska">Nebraska</option>
-												<option value="nevada">Nevada</option>
-												<option value="new_hampshire">New Hampshire</option>
-												<option value="new_jersey">New Jersey</option>
-												<option value="new_mexico">New Mexico</option>
-												<option value="new_york">New York</option>
-												<option value="north_carolina">North Carolina</option>
-												<option value="north_dakota">North Dakota</option>
-												<option value="ohio">Ohio</option><option value="Oklahoma">Oklahoma</option>
-												<option value="oregon">Oregon</option>
-												<option value="pennsylvania">pennsylvania</option>
-												<option value="rhode_island">Rhode Island</option>
-												<option value="south_carolina">South Carolina</option>
-												<option value="south_dakota">South Dakota</option>
-												<option value="tennessee">Tennessee</option>
-												<option value="texas">Texas</option>
-												<option value="utah">Utah</option>
-												<option value="vermont">Vermont</option>
-												<option value="virginia">Virginia</option>
-												<option value="washington">Washington</option>
-												<option value="west Virginia">West Virginia</option>
-												<option value="wisconsin">Wisconsin</option>
-												<option value="wyoming">Wyoming</option>
-											</select>
-										</div>
-										<a href="#"><i class="fa fa-map-marker"></i></a>
-									</div>
-								</div>
-
-								<button id="submitButton">Submit</button>
-
-								<!-- Filters -->
-								<div class="col-fs-12">
-
-									<!-- Panel Dropdown / End -->
-									<div class="panel-dropdown">
-										<a href="#">Brewery Type</a>
-										<div class="panel-dropdown-content checkboxes categories">
-											
-											<!-- Checkboxes -->
-											<div class="row">
-												<div class="col-md-6">
-													<input id="check-1" type="checkbox" name="check" checked class="all">
-													<label for="check-1">All Categories</label>
-
-													<input id="check-2" type="checkbox" name="check">
-													<label for="check-2">Micro</label>
-
-													<input id="check-3" type="checkbox" name="check">
-													<label for="check-3">Nano</label>
-												</div>	
-
-												<div class="col-md-6">
-													<input id="check-4" type="checkbox" name="check" >
-													<label for="check-4">Regional</label>
-
-													<input id="check-5" type="checkbox" name="check">
-													<label for="check-5">Brewpub</label>	
-
-													<input id="check-6" type="checkbox" name="check">
-													<label for="check-6">Large</label>
-												</div>
-
-												<div class="col-md-6">
-													<input id="check-1" type="checkbox" name="check" checked class="all">
-													<label for="check-1">Planning</label>
-
-													<input id="check-2" type="checkbox" name="check">
-													<label for="check-2">Bar</label>
-
-													<input id="check-3" type="checkbox" name="check">
-													<label for="check-3">Contract</label>
-												</div>	
-											</div>
-											
-											<!-- Buttons -->
-											<div class="panel-buttons">
-												<button class="panel-cancel">Cancel</button>
-												<button class="panel-apply">Apply</button>
-											</div>
-
-										</div>
-									</div>
-									<!-- Panel Dropdown / End -->
-
-									<!-- Panel Dropdown -->
-									<div class="panel-dropdown">
-											<input class="distance-radius" type="range" min="1" max="100" step="1" value="50" data-title="Radius around selected destination">
-									</div>
-									<!-- Panel Dropdown / End -->
-									
-								</div>
-								<!-- Filters / End -->
-	
-							</div>
-							<!-- Row With Forms / End -->
-
-					</div>
-				</div>
-
-			</section>
-			<!-- Search / End -->
-
-
-		<section class="listings-container margin-top-30" id="breweriesContainer">
-			<!-- Sorting / Layout Switcher -->
-			<div class="row fs-switcher">
-
-				<div class="col-md-6">
-					<!-- Showing Results -->
-					<p class="showing-results">14 Results Found </p>
-				</div>
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li>Listings</li>
+					</ul>
+				</nav>
 
 			</div>
-
-
-			<!-- Listings -->
-			<div class="row fs-listings">
-				
-
-			</div>
-			<!-- Listings Container / End -->
-
-
-			<!-- Pagination Container -->
-			<div class="row fs-listings">
-				<div class="col-md-12">
-
-					<!-- Pagination -->
-					<div class="clearfix"></div>
-					<div class="row">
-						<div class="col-md-12">
-							<!-- Pagination -->
-							<div class="pagination-container margin-top-15 margin-bottom-40">
-								<nav class="pagination">
-									<ul>
-										<li><a href="#" class="current-page">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
-									</ul>
-								</nav>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-					<!-- Pagination / End -->
-					
-					<!-- Copyrights -->
-					<div class="copyrights margin-top-0">© 2019 Listeo. All Rights Reserved.</div>
-
-				</div>
-			</div>
-			<!-- Pagination Container / End -->
-		</section>
-
 		</div>
 	</div>
-	<div class="fs-inner-container map-fixed">
+</div>
 
-		<!-- Map -->
-		<div id="map-container">
-		    <div id="map" data-map-zoom="9" data-map-scroll="true">
-		        <!-- map goes here -->
-		    </div>
+
+<!-- Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		
+		<!-- Search -->
+		<div class="col-md-12">
+			<div class="main-search-input gray-style margin-top-0 margin-bottom-10" id="listingSearchBar">
+
+				<div class="main-search-input-item">
+					<input type="text" placeholder="What are you looking for?" value=""/>
+				</div>
+
+				<div class="main-search-input-item location">
+					<div>
+						<input type="text" placeholder="City" id="cityTextBox">
+					</div>
+					<a href="#"><i class="fa fa-map-marker"></i></a>
+				</div>
+				<div class="main-search-input-item">
+					<select data-placeholder="State" class="chosen-select" id="stateDropdown">
+						<option value="" disabled selected>State</option>
+						<option value="alabama">Alabama</option>
+						<option value="alaska">Alaska</option>
+						<option value="arizona">Arizona</option>
+						<option value="arkansas">Arkansas</option>
+						<option value="california">California</option>
+						<option value="colorado">Colorado</option>
+						<option value="connecticut">Connecticut</option>
+						<option value="delaware">Delaware</option>
+						<option value="district_of_columbia">District of Columbia</option>
+						<option value="florida">Florida</option>
+						<option value="georgia">Georgia</option>
+						<option value="hawaii">Hawaii</option>
+						<option value="idaho">Idaho</option>
+						<option value="illinois">Illinois</option>
+						<option value="indiana">Indiana</option>
+						<option value="iowa">Iowa</option>
+						<option value="kansas">Kansas</option>
+						<option value="kentucky">Kentucky</option>
+						<option value="louisiana">Louisiana</option>
+						<option value="maine">Maine</option>
+						<option value="maryland">Maryland</option>
+						<option value="massachusetts">Massachusetts</option>
+						<option value="michigan">Michigan</option>
+						<option value="minnesota">Minnesota</option>
+						<option value="mississippi">Mississippi</option>
+						<option value="missouri">Missouri</option>
+						<option value="montana">Montana</option>
+						<option value="nebraska">Nebraska</option>
+						<option value="nevada">Nevada</option>
+						<option value="new_hampshire">New Hampshire</option>
+						<option value="new_jersey">New Jersey</option>
+						<option value="new_mexico">New Mexico</option>
+						<option value="new_york">New York</option>
+						<option value="north_carolina">North Carolina</option>
+						<option value="north_dakota">North Dakota</option>
+						<option value="ohio">Ohio</option>
+                    	<option value="oklahoma">Oklahoma</option>
+						<option value="oregon">Oregon</option>
+						<option value="pennsylvania">pennsylvania</option>
+						<option value="rhode_island">Rhode Island</option>
+						<option value="south_carolina">South Carolina</option>
+						<option value="south_dakota">South Dakota</option>
+						<option value="tennessee">Tennessee</option>
+						<option value="texas">Texas</option>
+						<option value="utah">Utah</option>
+						<option value="vermont">Vermont</option>
+						<option value="virginia">Virginia</option>
+						<option value="washington">Washington</option>
+						<option value="west Virginia">West Virginia</option>
+						<option value="wisconsin">Wisconsin</option>
+						<option value="wyoming">Wyoming</option>
+					</select>
+				</div>
+
+				<button class="button" id="submitButton">Search</button>
+			</div>
+		</div>
+		<!-- Search Section / End -->
+
+
+		<div class="col-md-12">
+
+			<!-- Sorting - Filtering Section -->
+			<div class="row margin-bottom-25 margin-top-30">
+
+				<div class="col-md-6">
+					<!-- Layout Switcher -->
+					<div>
+
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="fullwidth-filters">
+						
+						<!-- Panel Dropdown-->
+						<div class="panel-dropdown float-right">
+							<a href="#">Distance Radius</a>
+							<div class="panel-dropdown-content">
+								<input class="distance-radius" type="range" min="1" max="100" step="1" value="50" data-title="Radius around selected destination">
+								<div class="panel-buttons">
+									<button class="panel-cancel">Disable</button>
+									<button class="panel-apply">Apply</button>
+								</div>
+							</div>
+						</div>
+						<!-- Panel Dropdown / End -->
+
+						<!-- Sort by -->
+						<div class="sort-by">
+							<div class="sort-by-select">
+								<select data-placeholder="Default order" class="chosen-select-no-single">
+									<option>Default Order</option>	
+									<option>Highest Rated</option>
+									<option>Most Reviewed</option>
+									<option>Newest Listings</option>
+									<option>Oldest Listings</option>
+								</select>
+							</div>
+						</div>
+						<!-- Sort by / End -->
+
+					</div>
+				</div>
+
+			</div>
+			<!-- Sorting - Filtering Section / End -->
+
+			<div class="row" id="breweriesContainer">
+				Search for a brewery
+			</div>
+
 		</div>
 
 	</div>
 </div>
+
+
+<!-- Footer
+================================================== -->
+<div id="footer" class="margin-top-15">
+	<!-- Main -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 col-sm-6">
+				<img class="footer-logo" src="images/logo.png" alt="">
+				<br><br>
+				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+			</div>
+
+			<div class="col-md-4 col-sm-6 ">
+				<h4>Helpful Links</h4>
+				<ul class="footer-links">
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Sign Up</a></li>
+					<li><a href="#">My Account</a></li>
+					<li><a href="#">Add Listing</a></li>
+					<li><a href="#">Pricing</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+				</ul>
+
+				<ul class="footer-links">
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Our Partners</a></li>
+					<li><a href="#">How It Works</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>		
+
+			<div class="col-md-3  col-sm-12">
+				<h4>Contact Us</h4>
+				<div class="text-widget">
+					<span>12345 Little Lonsdale St, Melbourne</span> <br>
+					Phone: <span>(123) 123-456 </span><br>
+					E-Mail:<span> <a href="#">office@example.com</a> </span><br>
+				</div>
+
+				<ul class="social-icons margin-top-20">
+					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
+					<li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
+				</ul>
+
+			</div>
+
+		</div>
+		
+		<!-- Copyright -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="copyrights">© 2019 Listeo. All Rights Reserved.</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+<!-- Footer / End -->
+
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
 
 
 </div>
 <!-- Wrapper / End -->
 
+
 <!-- Scripts
 ================================================== -->
-<script type="text/javascript" src="/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/jquery-migrate-3.3.1.min.js"></script>
-<script type="text/javascript" src="/mmenu.min.js"></script>
-<script type="text/javascript" src="/chosen.min.js"></script>
-<script type="text/javascript" src="/slick.min.js"></script>
-<script type="text/javascript" src="/rangeslider.min.js"></script>
-<script type="text/javascript" src="/magnific-popup.min.js"></script>
-<script type="text/javascript" src="/waypoints.min.js"></script>
-<script type="text/javascript" src="/counterup.min.js"></script>
-<script type="text/javascript" src="/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/tooltips.min.js"></script>
-<script type="text/javascript" src="/custom.js"></script>
-
+<script type="text/javascript" src="scripts/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="scripts/jquery-migrate-3.3.1.min.js"></script>
+<script type="text/javascript" src="scripts/mmenu.min.js"></script>
+<script type="text/javascript" src="scripts/chosen.min.js"></script>
+<script type="text/javascript" src="scripts/slick.min.js"></script>
+<script type="text/javascript" src="scripts/rangeslider.min.js"></script>
+<script type="text/javascript" src="scripts/magnific-popup.min.js"></script>
+<script type="text/javascript" src="scripts/waypoints.min.js"></script>
+<script type="text/javascript" src="scripts/counterup.min.js"></script>
+<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="scripts/tooltips.min.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
 
 <!-- Google Autocomplete -->
 <script>
@@ -486,16 +451,39 @@
 	}
 }
 </script>
-
-<!-- Maps -->
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBBvB_7mAIknITRwxxPr64DLL6X8vhmHxY"></script>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"></script>
-<script type="text/javascript" src="/infobox.min.js"></script>
-<script type="text/javascript" src="/markerclusterer.js"></script>
-<script type="text/javascript" src="/maps.js"></script>
 
-<!-- Open brewery db API -->
+<!-- Style Switcher
+================================================== -->
+<script src="scripts/switcher.js"></script>
 
-<script src="/main.js"></script>
+<div id="style-switcher">
+	<h2>Color Switcher <a href="#"><i class="sl sl-icon-settings"></i></a></h2>
+	
+	<div>
+		<ul class="colors" id="color1">
+			<li><a href="#" class="main" title="Main"></a></li>
+			<li><a href="#" class="blue" title="Blue"></a></li>
+			<li><a href="#" class="green" title="Green"></a></li>
+			<li><a href="#" class="orange" title="Orange"></a></li>
+			<li><a href="#" class="navy" title="Navy"></a></li>
+			<li><a href="#" class="yellow" title="Yellow"></a></li>
+			<li><a href="#" class="peach" title="Peach"></a></li>
+			<li><a href="#" class="beige" title="Beige"></a></li>
+			<li><a href="#" class="purple" title="Purple"></a></li>
+			<li><a href="#" class="celadon" title="Celadon"></a></li>
+			<li><a href="#" class="red" title="Red"></a></li>
+			<li><a href="#" class="brown" title="Brown"></a></li>
+			<li><a href="#" class="cherry" title="Cherry"></a></li>
+			<li><a href="#" class="cyan" title="Cyan"></a></li>
+			<li><a href="#" class="gray" title="Gray"></a></li>
+			<li><a href="#" class="olive" title="Olive"></a></li>
+		</ul>
+	</div>
+		
+</div>
+<!-- Style Switcher / End -->
+
+<script src="scripts/openBreweryApi.js"></script>
 </body>
 </html>
