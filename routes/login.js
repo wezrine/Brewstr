@@ -18,9 +18,11 @@ router.get('/', (req, res) => {
 
 router.post('/', (req,res) => {
   
+
   const username = req.body.username;
   const password = req.body.password;
 
+  // bcrypt.compare(password, user.password, function(error))
 
 })
 

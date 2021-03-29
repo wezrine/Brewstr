@@ -4,13 +4,12 @@ const mustacheExpress = require('mustache-express')
 const session = require('express-session')
 var bcrypt = require('bcryptjs')
 
+
 const fetchBreweryById = require('./scripts/fetchById.js')
 
-// const db =
+const models = require('./models')
+const { Op } = require('sequelize')
 
-// const models = require('./models')
-// const { Op } = require('sequelize')
-// const session = require('express-session')
 
 // Mustache Express
 app.engine('mustache', mustacheExpress())
@@ -43,12 +42,32 @@ app.get('/register', (req,res) => {
     res.render('register')
 })
 
-app.post('/register', (req,res) => {
+// Registration & Encryption 
+app.post('/register', (req, res) => {
 
     const username = req.body.username;
     const password = req.body.password;
 
-    bcrypt.genSalt
+    bcrypt.genSalt(10, function (error, salt) {
+        bcrypt.hash(password, salt, function (error, hash) {
+            if (!error) {
+                let user = models.User.build({
+
+                    username: username,
+                    password: hash
+
+                })
+                user.save().then(savedUser => {
+                    // console.log(savedUser)
+                    // res.json({message: 'user registered'})
+                    // if user is successfully logged in, 
+                    res.redirect('/login')
+                }).catch(error => {
+                    res.render('/register')
+                })
+            }
+        })
+    })
 })
 
 app.get('/', (req, res) => {
