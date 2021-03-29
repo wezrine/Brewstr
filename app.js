@@ -18,6 +18,10 @@ app.use(express.static('css'))
 app.use(express.static('scripts'))
 app.use(express.static('images'))
 
+// Routes
+const loginRouter = require('./routes/login')
+app.use('/login', loginRouter)
+
 app.get('/', (req, res) => {
     res.render('home')
 })
