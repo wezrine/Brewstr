@@ -26,6 +26,10 @@ app.get('/listings', (req, res) => {
     res.render('listings')
 })
 
+app.get('/brewery_details', (req, res) => {
+    res.render('brewery_details')
+})
+
 // Launch Server
 app.listen(3000, () => {
     console.log('Server is running...')
