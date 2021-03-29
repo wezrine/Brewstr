@@ -483,7 +483,16 @@ header.fullwidth .container {
 	color: #aaa;
 	border-top: 1px solid rgba(255,255,255,0.09);
 }
-
+.contact_div {
+	display: flex;
+	justify-content: space-between;
+	max-width: 300px;
+}
+.contact_span {
+	padding-top: 5px;
+	padding-right: 5px;
+	font-size: 12px;
+}
 #footer .social-icons li a {
     opacity: 0.8;
     transition: opacity 0.35s;
