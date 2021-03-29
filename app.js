@@ -17,9 +17,10 @@ const PORT = process.env.PORT || 8080
 app.use(express.urlencoded())
 
 // Load CSS & JS
-app.use(express.static('css'))
-app.use(express.static('scripts'))
-app.use(express.static('images'))
+app.use("/css",express.static('css'))
+app.use("/scripts",express.static('scripts'))
+app.use("/images",express.static('images'))
+app.use("/fonts",express.static('fonts'))
 
 // Routes
 const loginRouter = require('./routes/login')
