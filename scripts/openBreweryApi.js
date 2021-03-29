@@ -92,6 +92,8 @@ function displayBreweries(result) {
         </div>
         `
         breweriesContainer.insertAdjacentHTML('beforeend', breweryItem)
+        stateDropdown.value = ""
+        cityTextBox.value = ""
     }
 }
 

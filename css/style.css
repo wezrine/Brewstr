@@ -1940,6 +1940,10 @@ body .typed-cursor.typed-cursor--blink.typed-fade-out{
 	background: linear-gradient(to right, rgba(255,255,255,0.99) 20%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0) 95%);
 }
 
+#listingSearchBar {
+	width: 100%;
+}
+
 .main-search-container h2 {
 	font-size: 42px;
 }
