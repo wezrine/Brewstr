@@ -4871,7 +4871,7 @@ input#booking-date, input#booking-time { z-index: 110; }
 
 #titlebar.listing-titlebar span.listing-tag {
 	margin: 0;
-	padding: 8px 16px;
+	padding: 8px 0px;
 	line-height: 15px;
 	letter-spacing: 2.5px;
 	border-radius: 50px;
@@ -7066,6 +7066,7 @@ a.send-message-to-owner.button {
 	transition: 0.3s;
 	color: #666;
 	padding-bottom: 15px;
+	margin-top: 70px;
 }
 
 
@@ -11787,7 +11788,8 @@ span.like-icon {
 #titlebar {
 	background-color: #f8f8f8;
 	position: relative;
-	padding: 70px 0;
+	padding-top: 70px;
+	padding-bottom: 0px;
 	margin-bottom: 65px;
 }
 
