@@ -5821,9 +5821,8 @@ h3 .listing-price i {
     margin: 35px 0 25px 0;
     background: #fff;
     border-radius: 4px;
-    padding: 30px;
-    padding-right: 20px;
-    border: 1px solid #e8e8e8;
+	width: 100%;
+	justify-content: center;
 }
 
 .rating-overview-box {
@@ -5833,12 +5832,12 @@ h3 .listing-price i {
     align-items: center;
     flex-shrink: 0;
     border: navajowhite;
-    width: 135px;
-    margin-right: 20px;
+    width: 160px;
     text-align: center;
     border-radius: 0;
-    border-right: 1px solid #e8e8e8;
-    padding-right: 27px;
+	padding: 30px;
+	border: 1px solid #e8e8e8;
+
 }
 
 .rating-overview-box-total {
@@ -5898,12 +5897,10 @@ h3 .listing-price i {
  		padding: 20px 25px;
  	}
  	.rating-overview-box {
- 		border-right: none;
  		border-bottom: 1px solid #e8e8e8;
  		width: 100%;
  		margin-bottom: 20px;
  		padding-bottom: 25px;
- 		padding-right: 0;
  		margin-right: 0;
  	}
 }
@@ -7084,6 +7081,7 @@ a.send-message-to-owner.button {
 	margin-bottom: 25px;
 	margin-top: 45px;
 	display: block;
+	/* text-align: center; */
 }
 
 .listing-desc-headline span { color: #888;  }
@@ -7091,6 +7089,7 @@ a.send-message-to-owner.button {
 .listing-section {
 	display: inline-block;
 	width: 100%;
+	/* justify-content: end; */
 }
 
 /* Apartment Details */

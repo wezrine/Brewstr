@@ -1,6 +1,7 @@
 var fetch = require('node-fetch')
 
-function fetchBreweryById(id) {
+function fetchBreweryById(id, completion) {
+
     fetch(`https://api.openbrewerydb.org/breweries/${id}`, {
         "method": "GET",
         "headers": {
@@ -11,14 +12,11 @@ function fetchBreweryById(id) {
         return response.json();
     }).then((result) => {
         console.log(result);
-        fetchedBreweryById(result)
+        completion(result)
     }).catch(err => {
         console.error(err);
     });
 }
 
-function fetchedBreweryById() {
-    console.log('hi')
-}
 
 module.exports = fetchBreweryById

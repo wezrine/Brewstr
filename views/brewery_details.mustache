@@ -32,7 +32,7 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="index.html"><img src="/images/logo.png" alt=""></a>
+					<a href="/"><img src="/images/logo.png" alt=""></a>
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -53,49 +53,10 @@
 					
 								<li><a href="dashboard-my-listings.html">My Listings</a></li>
 								<li><a href="dashboard-reviews.html">Reviews</a></li>
-								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
-								<li><a href="dashboard-add-listing.html">Add Listing</a></li>
 								<li><a href="dashboard-my-profile.html">My Profile</a></li>
-								<li><a href="dashboard-invoice.html">Invoice</a></li>
+
 							</ul>
 						</li>
-
-						<li><a href="#">Pages</a>
-							<div class="mega-menu mobile-styles three-columns">
-
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">Pages #1</li>
-											<li><a href="pages-user-profile.html"><i class="sl sl-icon-user"></i> User Profile</a></li>
-											<li><a href="pages-booking.html"><i class="sl sl-icon-check"></i> Booking Page</a></li>
-											<li><a href="pages-add-listing.html"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
-											<li><a href="pages-blog.html"><i class="sl sl-icon-docs"></i> Blog</a></li>
-										</ul>
-									</div>
-		
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">Pages #2</li>
-											<li><a href="pages-contact.html"><i class="sl sl-icon-envelope-open"></i> Contact</a></li>
-											<li><a href="pages-coming-soon.html"><i class="sl sl-icon-hourglass"></i> Coming Soon</a></li>
-											<li><a href="pages-404.html"><i class="sl sl-icon-close"></i> 404 Page</a></li>
-											<li><a href="pages-masonry-filtering.html"><i class="sl sl-icon-equalizer"></i> Masonry Filtering</a></li>
-										</ul>
-									</div>
-
-									<div class="mega-menu-section">
-										<ul>
-											<li class="mega-menu-headline">Other</li>
-											<li><a href="pages-elements.html"><i class="sl sl-icon-settings"></i> Elements</a></li>
-											<li><a href="pages-pricing-tables.html"><i class="sl sl-icon-tag"></i> Pricing Tables</a></li>
-											<li><a href="pages-typography.html"><i class="sl sl-icon-pencil"></i> Typography</a></li>
-											<li><a href="pages-icons.html"><i class="sl sl-icon-diamond"></i> Icons</a></li>
-										</ul>
-									</div>
-									
-							</div>
-						</li>
-						
 					</ul>
 				</nav>
 				<div class="clearfix"></div>
@@ -108,7 +69,6 @@
 			<div class="right-side">
 				<div class="header-widget">
 					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a>
-					<a href="dashboard-add-listing.html" class="button border with-icon">Add Listing <i class="sl sl-icon-plus"></i></a>
 				</div>
 			</div>
 			<!-- Right Side Content / End -->
@@ -233,11 +193,11 @@
 			<!-- Titlebar -->
 			<div id="titlebar" class="listing-titlebar">
 				<div class="listing-titlebar-title">
-					<h2>Name{{name}}<span class="listing-tag">Eat & Drink</span></h2>
+					<h2>{{brewery.name}}<span class="listing-tag">{{brewery.brewery_type}}</span></h2>
 					<span>
 						<a href="#listing-location" class="listing-address">
 							<i class="fa fa-map-marker"></i>
-							2726 Shinn Street, New York
+							{{brewery.street}} {{brewery.city}}, {{brewery.state}} {{brewery.postal_code}}
 						</a>
 					</span>
 					<div class="star-rating" data-rating="5">
@@ -253,10 +213,8 @@
 				<div class="listing-links-container">
 
 					<ul class="listing-links contact-links">
-						<li><a href="tel:12-345-678" class="listing-links"><i class="fa fa-phone"></i> +12 345 6578</a></li>
-						<li><a href="mailto:mail@example.com" class="listing-links"><i class="fa fa-envelope-o"></i> mail@example.com</a>
-						</li>
-						<li><a href="#" target="_blank"  class="listing-links"><i class="fa fa-link"></i> www.example.com</a></li>
+						<li><a href="tel:12-345-678" class="listing-links"><i class="fa fa-phone"></i>{{brewery.phone}}</a></li>
+						<li><a href="#" target="_blank"  class="listing-links"><i class="fa fa-link"></i>{{brewery.website_url}}</a></li>
 					</ul>
 					<div class="clearfix"></div>
 
@@ -296,37 +254,6 @@
 						<span class="rating-overview-box-total">4.2</span>
 						<span class="rating-overview-box-percent">out of 5.0</span>
 						<div class="star-rating" data-rating="5"></div>
-					</div>
-
-					<div class="rating-bars">
-							<div class="rating-bars-item">
-								<span class="rating-bars-name">Service <i class="tip" data-tip-content="Quality of customer service and attitude to work with you"></i></span>
-								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="4.2">
-										<span class="rating-bars-rating-inner"></span>
-									</span>
-									<strong>4.2</strong>
-								</span>
-							</div>
-							
-							<div class="rating-bars-item">
-								<span class="rating-bars-name">Location <i class="tip" data-tip-content="Visibility, commute or nearby parking spots"></i></span>
-								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="3.7">
-										<span class="rating-bars-rating-inner"></span>
-									</span>
-									<strong>3.7</strong>
-								</span>
-							</div>
-							<div class="rating-bars-item">
-								<span class="rating-bars-name">Cleanliness <i class="tip" data-tip-content="The physical condition of the business"></i></span>
-								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="4.0">
-										<span class="rating-bars-rating-inner"></span>
-									</span>
-									<strong>4.0</strong>
-								</span>
-							</div>
 					</div>
 				</div>
 				<!-- Rating Overview / End -->
@@ -420,104 +347,6 @@
 				<!-- Add Review -->
 				<h3 class="listing-desc-headline margin-bottom-10">Add Review</h3>
 				<p class="comment-notes">Your email address will not be published.</p>
-
-				<!-- Subratings Container -->
-				<div class="sub-ratings-container">
-
-					<!-- Subrating #1 -->
-					<div class="add-sub-rating">
-						<div class="sub-rating-title">Service <i class="tip" data-tip-content="Quality of customer service and attitude to work with you"></i></div>
-						<div class="sub-rating-stars">
-							<!-- Leave Rating -->
-							<div class="clearfix"></div>
-							<form class="leave-rating">
-								<input type="radio" name="rating" id="rating-1" value="1"/>
-								<label for="rating-1" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-2" value="2"/>
-								<label for="rating-2" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-3" value="3"/>
-								<label for="rating-3" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-4" value="4"/>
-								<label for="rating-4" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-5" value="5"/>
-								<label for="rating-5" class="fa fa-star"></label>
-							</form>
-						</div>
-					</div>
-
-					<!-- Subrating #2 -->
-					<div class="add-sub-rating">
-						<div class="sub-rating-title">Value for Money <i class="tip" data-tip-content="Overall experience received for the amount spent"></i></div>
-						<div class="sub-rating-stars">
-							<!-- Leave Rating -->
-							<div class="clearfix"></div>
-							<form class="leave-rating">
-								<input type="radio" name="rating" id="rating-11" value="1"/>
-								<label for="rating-11" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-12" value="2"/>
-								<label for="rating-12" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-13" value="3"/>
-								<label for="rating-13" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-14" value="4"/>
-								<label for="rating-14" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-15" value="5"/>
-								<label for="rating-15" class="fa fa-star"></label>
-							</form>
-						</div>
-					</div>
-
-					<!-- Subrating #3 -->
-					<div class="add-sub-rating">
-						<div class="sub-rating-title">Location <i class="tip" data-tip-content="Visibility, commute or nearby parking spots"></i></div>
-						<div class="sub-rating-stars">
-							<!-- Leave Rating -->
-							<div class="clearfix"></div>
-							<form class="leave-rating">
-								<input type="radio" name="rating" id="rating-21" value="1"/>
-								<label for="rating-21" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-22" value="2"/>
-								<label for="rating-22" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-23" value="3"/>
-								<label for="rating-23" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-24" value="4"/>
-								<label for="rating-24" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-25" value="5"/>
-								<label for="rating-25" class="fa fa-star"></label>
-							</form>
-						</div>
-					</div>
-					
-					<!-- Subrating #4 -->
-					<div class="add-sub-rating">
-						<div class="sub-rating-title">Cleanliness <i class="tip" data-tip-content="The physical condition of the business"></i></div>
-						<div class="sub-rating-stars">
-							<!-- Leave Rating -->
-							<div class="clearfix"></div>
-							<form class="leave-rating">
-								<input type="radio" name="rating" id="rating-31" value="1"/>
-								<label for="rating-31" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-32" value="2"/>
-								<label for="rating-32" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-33" value="3"/>
-								<label for="rating-33" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-34" value="4"/>
-								<label for="rating-34" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-35" value="5"/>
-								<label for="rating-35" class="fa fa-star"></label>
-							</form>
-						</div>
-					</div>	
-
-					<!-- Uplaod Photos -->
-	                <div class="uploadButton margin-top-15">
-	                    <input class="uploadButton-input" type="file"  name="attachments[]" accept="image/*, application/pdf" id="upload" multiple/>
-	                    <label class="uploadButton-button ripple-effect" for="upload">Add Photos</label>
-	                    <span class="uploadButton-file-name"></span>
-	                </div>
-	                <!-- Uplaod Photos / End -->
-
-				</div>
-				<!-- Subratings Container / End -->
 
 				<!-- Review Comment -->
 				<form id="add-comment" class="add-comment">
