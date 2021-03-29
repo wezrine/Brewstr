@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "lvqcgmvw",
+    "password": "71l_QtwZslCvJaliBmRkc4cx7bWQyHdZ",
+    "database": "lvqcgmvw",
+    "host": "queenie.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "lvqcgmvw",
+    "password": "71l_QtwZslCvJaliBmRkc4cx7bWQyHdZ",
+    "database": "lvqcgmvw",
+    "host": "queenie.db.elephantsql.com",
+    "dialect": "postgres"
+  }
+}
