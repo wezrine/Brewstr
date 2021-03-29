@@ -3,13 +3,14 @@ const app = express()
 const mustacheExpress = require('mustache-express')
 const session = require('express-session')
 var bcrypt = require('bcryptjs')
-const pgp = require('pg-promise')
 
-const db =
+const fetchBreweryById = require('./scripts/fetchById.js')
 
-const models = require('./models')
-const { Op } = require('sequelize')
-const session = require('express-session')
+// const db =
+
+// const models = require('./models')
+// const { Op } = require('sequelize')
+// const session = require('express-session')
 
 // Mustache Express
 app.engine('mustache', mustacheExpress())
@@ -50,12 +51,6 @@ app.post('/register', (req,res) => {
     bcrypt.genSalt
 })
 
-
-
-
-
-
-
 app.get('/', (req, res) => {
     res.render('home')
 })
@@ -64,7 +59,13 @@ app.get('/listings', (req, res) => {
     res.render('listings')
 })
 
-app.get('/brewery_details', (req, res) => {
+app.get('/brewery/:brewery', (req, res) => {
+    const breweryId = req.params.brewery
+    // const brewery = fetchBreweryById(breweryId)
+    // console.log(brewery.result.name)
+    // console.log(fetchBreweryById(breweryId))
+    // fetch brewery by id
+
     res.render('brewery_details')
 })
 

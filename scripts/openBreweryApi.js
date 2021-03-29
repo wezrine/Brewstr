@@ -65,11 +65,10 @@ function displayBreweries(result) {
 
     for (let index = 0; index < result.length; index++) {
         let brewery = result[index]
-
         const breweryItem = `
         <div class="col-lg-12 col-md-12">
         <div class="listing-item-container list-layout" data-marker-id="1">
-            <a href="listings-single-page.html" class="listing-item">
+            <a href="/brewery/${brewery.id}" class="listing-item">
                 
                 <!-- Image -->
                 <div class="listing-item-image">
@@ -96,8 +95,6 @@ function displayBreweries(result) {
         cityTextBox.value = ""
     }
 }
-
-
 
 {/* <div class="brewery_container">
 <div class="name_div">${brewery.name}</div>
@@ -181,3 +178,4 @@ function abbreviateState(input) {
         }
     }
 }
+
