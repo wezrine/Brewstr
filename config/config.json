@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "lvqcgmvw",
-    "password":"71l_QtwZslCvJaliBmRkc4cx7bWQyHdZ",
+    "password": "71l_QtwZslCvJaliBmRkc4cx7bWQyHdZ",
     "database": "lvqcgmvw",
     "host": "queenie.db.elephantsql.com",
     "dialect": "postgres"
@@ -15,7 +15,7 @@
   },
   "production": {
     "username": "lvqcgmvw",
-    "password":"71l_QtwZslCvJaliBmRkc4cx7bWQyHdZ",
+    "password": "71l_QtwZslCvJaliBmRkc4cx7bWQyHdZ",
     "database": "lvqcgmvw",
     "host": "queenie.db.elephantsql.com",
     "dialect": "postgres"
