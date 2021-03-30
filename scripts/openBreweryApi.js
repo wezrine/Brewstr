@@ -56,10 +56,12 @@ function displayBreweries(result) {
                         <h3>${brewery.name}</i></h3>
                         <span>${brewery.street} ${brewery.city}, ${abbreviateState(brewery.state)} ${brewery.postal_code}</span>
                     </div>
-
-                    <span class="like-icon"></span>
                 </div>
             </a>
+            <form method="POST" action="/save-brewery">
+                <input type="hidden" value="${brewery.id}" name="breweryId">
+                <span class="like-icon"><button type="submit" style="width:100%;height:100%;opacity:0;border:none;"></button></span>
+            </form>
         </div>
         </div>
         `

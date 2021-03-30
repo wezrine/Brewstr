@@ -6,13 +6,7 @@ var bcrypt = require('bcryptjs')
 const models = require('./models')
 const { Op } = require('sequelize')
 
-
 const fetchBreweryById = require('./scripts/fetchById.js')
-
-
-
-
-
 
 // Mustache Express
 app.engine('mustache', mustacheExpress())
@@ -38,10 +32,7 @@ app.use(session({
 
 // Routes
 const loginRouter = require('./routes/login')
-const reviewsRouter = require('./routes/reviews.js')
 app.use('/login', loginRouter)
-app.use('/reviews', reviewsRouter)
-
 
 // user registration (we can move to route soon)
 app.get('/register', (req,res) => {
@@ -77,6 +68,9 @@ app.post('/register', (req, res) => {
 })
 
 app.get('/', (req, res) => {
+    // check to see if user is logged in
+        // if logged in display user header
+    // if not logged in show sign in header
     res.render('home')
 })
 
@@ -102,24 +96,40 @@ app.get('/brewery/:breweryId', (req, res) => {
     }) 
 })
 
+app.post('/save-brewery', (req, res) => {
+    const breweryId = parseInt(req.body.breweryId)
+    console.log(breweryId)
+    const username = "wezrine"
+
+    let breweries = models.Breweries.build({
+        username: username,
+        brewery_id: breweryId
+    })
+    breweries.save().then(savedBreweries => {
+        console.log(savedBreweries)
+        res.send('saved')
+    })
+})
+
 app.get('/add-review', (req, res) => {
     models.Review.findAll({})
     .then(Reviews => {
         res.redirect('/add-review', {reviews: reviews})
     })   
 })
-app.post('/add-review', (req, res) =>{
+
+app.post('/add-review', (req, res) => {
     const breweryId = req.body.fetchBreweryById
     const name = req.body.name
     const review = req.body.review
 
     let reviews = models.Review.build({
-        name:name,
-        review:review,
+        name: name,
+        review: review,
         breweryId: breweryId
 
     })
-    reviews.save().then(savedReviews=>{
+    reviews.save().then(savedReviews => {
         console.log(savedReviews)
         res.redirect(`/brewery/${savedReviews.breweryId}`)
     }).catch((error) =>{
@@ -139,10 +149,7 @@ app.post('/delete-review', (req, res) => {
     }).then(deletedReviews => {
         res.redirect(req.get('referer'))
     })
-})
-
-
-// Load reviews page and adds a review
+})// Load reviews page and adds a review
 
 // Launch Server
 app.listen(3000, () => {

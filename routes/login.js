@@ -16,8 +16,12 @@ router.get('/', (req, res) => {
 
 
 
-router.post('/', (req,res) => {
 
+
+
+
+router.post('/', (req,res) => {
+  // name of page = dwdwdwd
   userModel.User.findOne({
     where: {
       username: req.body.username
@@ -33,7 +37,11 @@ router.post('/', (req,res) => {
 
           res.redirect('/');
         } else {
-          res.redirect('listings')
+
+          res.render('listings', {message: "Wrong account details"})
+          // on page load click sign in button
+            // const signInButton = document.getElementById('signInButton')
+            // signInButton.click()
         }
       })
     }
