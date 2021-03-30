@@ -3,14 +3,9 @@ const app = express()
 const mustacheExpress = require('mustache-express')
 const session = require('express-session')
 var bcrypt = require('bcryptjs')
-
-
+const models = require('./models')
+const { Op } = require('sequelize')
 const fetchBreweryById = require('./scripts/fetchById.js')
-
-
-
-
-
 
 // Mustache Express
 app.engine('mustache', mustacheExpress())
@@ -36,10 +31,7 @@ app.use(session({
 
 // Routes
 const loginRouter = require('./routes/login')
-const reviewsRouter = require('./routes/reviews.js')
 app.use('/login', loginRouter)
-app.use('/reviews', reviewsRouter)
-
 
 // user registration (we can move to route soon)
 app.get('/register', (req,res) => {
@@ -85,15 +77,15 @@ app.get('/listings', (req, res) => {
 app.get('/brewery/:breweryId', (req, res) => {
     const breweryId = req.params.breweryId
 
-    models.Review.findAll({
-        where: {
-            ReviewBreweryId: {
-                [Op.eq]: breweryId
-            }
-        }
-    }).then(reviews => {
-        return reviews
-    })
+    // models.Review.findAll({
+    //     where: {
+    //         ReviewBreweryId: {
+    //             [Op.eq]: breweryId
+    //         }
+    //     }
+    // }).then(reviews => {
+    //     return reviews
+    // })
 
     fetchBreweryById(breweryId, function(brewery) {
         res.render('brewery_details', {brewery: brewery})
@@ -106,6 +98,7 @@ app.get('/add-review', (req, res) => {
         res.redirect('/add-review', {reviews: reviews})
     })   
 })
+
 app.post('/add-review', (req, res) =>{
     const breweryId = req.body.fetchBreweryById
     const name = req.body.name
