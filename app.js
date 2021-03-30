@@ -84,13 +84,18 @@ app.get('/listings', (req, res) => {
 })
 
 app.get('/brewery/:brewery', (req, res) => {
-    const breweryId = req.params.brewery
+    // const breweryId = req.params.brewery
     // const brewery = fetchBreweryById(breweryId)
     // console.log(brewery.result.name)
     // console.log(fetchBreweryById(breweryId))
     // fetch brewery by id
 
-    res.render('brewery_details')
+    const breweryId = req.params.brewery 
+    fetchBreweryById(breweryId, function(brewery) {
+        res.render('brewery_details', {brewery: brewery})
+    })
+
+    //res.render('brewery_details')
 })
 
 app.get('/brewery_details', (req, res) => {

@@ -1,8 +1,6 @@
 const cityTextBox = document.getElementById("cityTextBox")
 const stateDropdown = document.getElementById("stateDropdown")
 const submitButton = document.getElementById("submitButton")
-// const searchTextBox = document.getElementById("searchTextBox")
-// const submitSearchButton = document.getElementById("submitSearchButton")
 
 const breweriesContainer = document.getElementById("breweriesContainer")
 
@@ -24,23 +22,6 @@ function fetchBreweriesByCityState(city, state) {
     });
 }
 
-// function fetchBreweriesBySearch() {
-//     fetch(`https://brianiswu-open-brewery-db-v1.p.rapidapi.com/breweries/search?query=dog`, {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-key": "fb7457a28cmsh8446e8ae6d62e1dp123bf0jsn87f55a1983ba",
-//             "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com"
-//         }
-//     }).then(response => {
-//         console.log(response);
-//     }).then((result) => {
-//         console.log(result);
-//         displayBreweries(result)
-//     }).catch(err => {
-//         console.error(err);
-//     });
-// }
-
 submitButton.addEventListener("click", function () {
     const city = cityTextBox.value
     const state = stateDropdown.value
@@ -50,14 +31,6 @@ submitButton.addEventListener("click", function () {
     cityTextBox.value = ""
     stateDropdown.value = ""
 })
-
-// submitSearchButton.addEventListener("click", function() {
-//     const search = searchTextBox.value
-
-//     fetchBreweriesBySearch()
-
-//     searchTextBox.value = ""
-// })
 
 function displayBreweries(result) {
     
@@ -91,20 +64,11 @@ function displayBreweries(result) {
         </div>
         `
         breweriesContainer.insertAdjacentHTML('beforeend', breweryItem)
-        stateDropdown.value = ""
-        cityTextBox.value = ""
     }
+
+    stateDropdown.value = disabled
+    cityTextBox.value = ""
 }
-
-{/* <div class="brewery_container">
-<div class="name_div">${brewery.name}</div>
-<div class="address_div">${brewery.street} ${brewery.city}, ${abbreviateState(brewery.state)} ${brewery.postal_code}</div>
-<div class="contact_div">
-    <a href="${brewery.website_url}" target="_blank">Website</a>
-    <a href="tel:${brewery.phone}">Phone</a>
-</div>
-</div> */}
-
 
 function abbreviateState(input) {
     const states = [
