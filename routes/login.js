@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const userModel = require('../models')
+var bcrypt = require('bcryptjs')
 
-let users = [
-  {username: 'johndoe', password: 'password'},
-  {username: 'marydoe', password: '123456'}
-]
+
+
 
 
 
@@ -17,12 +17,27 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req,res) => {
-  
 
-  const username = req.body.username;
-  const password = req.body.password;
+  userModel.User.findOne({
+    where: {
+      username: req.body.username
+    }
+  }).then(user => {
+    console.log(user)
+    if (!user) {
+      res.render('home');
+    } else {
+      bcrypt.compare(req.body.password, user.password, function (err, result) {
 
-  // bcrypt.compare(password, user.password, function(error))
+        if (result == true) {
+
+          res.redirect('/');
+        } else {
+          res.redirect('login')
+        }
+      })
+    }
+  })
 
 })
 
