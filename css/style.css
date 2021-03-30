@@ -6954,6 +6954,17 @@ a.send-message-to-owner.button {
 	margin-right: 8px;
 	font-size: 18px;
 }
+.like-icon > button {
+	width: 100%;
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0;
+	z-index: 10000;
+}
 
 
 
