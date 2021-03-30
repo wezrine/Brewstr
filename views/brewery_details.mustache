@@ -263,11 +263,12 @@
 
 				<!-- Reviews -->
 				<section class="comments listing-reviews">
+				 {{#reviews}}
 					<ul>
 						<li>
 							<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 							<div class="comment-content"><div class="arrow-comment"></div>
-								<div class="comment-by">Kathy Brown <i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
+								<div class="comment-by">{{name}}<i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
 									<div class="star-rating" data-rating="5"></div>
 								</div>
 								<p>Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus</p>
@@ -318,6 +319,7 @@
 
 						</li>
 					 </ul>
+				{{/reviews}}
 				</section>
 
 				<!-- Pagination -->
@@ -346,36 +348,26 @@
 
 				<!-- Add Review -->
 				<h3 class="listing-desc-headline margin-bottom-10">Add Review</h3>
-				<p class="comment-notes">Your email address will not be published.</p>
+				
+
 
 				<!-- Review Comment -->
-				<form id="add-comment" class="add-comment">
-					<fieldset>
-
-						<div class="row">
-							<div class="col-md-6">
-								<label>Name:</label>
-								<input type="text" value=""/>
+				<form method="POST" action="/add-review" id="add-comment" class="add-comment">
+							<div class="row">
+								<div class="col-md-6">
+									<label>Name:</label>
+									<input type="text" value="" name="name"/>
+								</div>	
 							</div>
-								
-							<div class="col-md-6">
-								<label>Email:</label>
-								<input type="text" value=""/>
+							<div>
+								<label>Review:</label>
+								<textarea cols="40" rows="3" name="review" ></textarea>
 							</div>
-						</div>
-
-						<div>
-							<label>Review:</label>
-							<textarea cols="40" rows="3"></textarea>
-						</div>
-
-					</fieldset>
-
-					<button class="button">Submit Review</button>
-					<div class="clearfix"></div>
+							<button class="button">Submit Review</button>
+							<div class="clearfix"></div>
 				</form>
 
-			</div>
+		
 			<!-- Add Review Box / End -->
 
 		</div>
