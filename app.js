@@ -11,6 +11,11 @@ const models = require('./models')
 const { Op } = require('sequelize')
 
 
+const models = require('./models')
+const { Op } = require('sequelize')
+// const session = require('express-session')
+
+
 // Mustache Express
 app.engine('mustache', mustacheExpress())
 app.set('views', './views')
@@ -87,6 +92,50 @@ app.get('/brewery/:brewery', (req, res) => {
 
     res.render('brewery_details')
 })
+
+app.get('/brewery_details', (req, res) => {
+    res.render('brewery_details')
+})
+
+app.get('/add-review', (req, res) => {
+    models.Reviews.findAll({})
+    .then(Reviews => {
+        res.redirect('/add-review', {reviews: reviews})
+    })   
+})
+app.post('/add-review', (req, res) =>{
+    const breweryId = req.body.fetchBreweryById
+    const name = req.body.name
+    const review = req.body.review
+
+    let reviews = models.Review.build({
+        name:name,
+        review:review,
+        breweryId: breweryId
+
+    })
+    reviews.save().then(savedReviews=>{
+        console.log(savedReviews)
+        res.redirect(`/brewery/${savedReviews.breweryId}`)
+    }).catch((error) =>{
+        console.log(error)
+        res.send('comment not added')
+    })
+    
+})
+
+app.post('/delete-review', (req, res) => {
+    const ReviewsId = req.body.ReviewsId
+
+    models.Blogs.destroy({
+        where: {
+            id: ReviewsId 
+        }
+    }).then(deletedReviews => {
+        res.redirect(req.get('referer'))
+    })
+})
+
 
 // Load reviews page and adds a review
 
