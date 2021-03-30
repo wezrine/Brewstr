@@ -5,6 +5,7 @@ const session = require('express-session')
 var bcrypt = require('bcryptjs')
 const models = require('./models')
 const { Op } = require('sequelize')
+
 const fetchBreweryById = require('./scripts/fetchById.js')
 
 // Mustache Express
