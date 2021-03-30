@@ -33,7 +33,7 @@ router.post('/', (req,res) => {
 
           res.redirect('/');
         } else {
-          res.redirect('login')
+          res.redirect('listings')
         }
       })
     }

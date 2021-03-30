@@ -3,6 +3,8 @@ const app = express()
 const mustacheExpress = require('mustache-express')
 const session = require('express-session')
 var bcrypt = require('bcryptjs')
+const models = require('./models')
+const { Op } = require('sequelize')
 
 
 const fetchBreweryById = require('./scripts/fetchById.js')
@@ -85,15 +87,15 @@ app.get('/listings', (req, res) => {
 app.get('/brewery/:breweryId', (req, res) => {
     const breweryId = req.params.breweryId
 
-    models.Review.findAll({
-        where: {
-            ReviewBreweryId: {
-                [Op.eq]: breweryId
-            }
-        }
-    }).then(reviews => {
-        return reviews
-    })
+    // models.Review.findAll({
+    //     where: {
+    //         ReviewBreweryId: {
+    //             [Op.eq]: breweryId
+    //         }
+    //     }
+    // }).then(reviews => {
+    //     return reviews
+    // })
 
     fetchBreweryById(breweryId, function(brewery) {
         res.render('brewery_details', {brewery: brewery})
