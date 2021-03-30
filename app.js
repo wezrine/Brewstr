@@ -11,9 +11,7 @@ const models = require('./models')
 const { Op } = require('sequelize')
 
 
-const models = require('./models')
-const { Op } = require('sequelize')
-// const session = require('express-session')
+
 
 
 // Mustache Express
@@ -40,7 +38,10 @@ app.use(session({
 
 // Routes
 const loginRouter = require('./routes/login')
+const reviewsRouter = require('./routes/reviews.js')
 app.use('/login', loginRouter)
+app.use('/reviews', reviewsRouter)
+
 
 // user registration (we can move to route soon)
 app.get('/register', (req,res) => {
@@ -83,27 +84,26 @@ app.get('/listings', (req, res) => {
     res.render('listings')
 })
 
-app.get('/brewery/:brewery', (req, res) => {
-    // const breweryId = req.params.brewery
-    // const brewery = fetchBreweryById(breweryId)
-    // console.log(brewery.result.name)
-    // console.log(fetchBreweryById(breweryId))
-    // fetch brewery by id
+app.get('/brewery/:breweryId', (req, res) => {
+    const breweryId = req.params.breweryId
 
-    const breweryId = req.params.brewery 
-    fetchBreweryById(breweryId, function(brewery) {
-        res.render('brewery_details', {brewery: brewery})
+    models.Review.findAll({
+        where: {
+            ReviewBreweryId: {
+                [Op.eq]: breweryId
+            }
+        }
+    }).then(reviews => {
+        return reviews
     })
 
-    //res.render('brewery_details')
-})
-
-app.get('/brewery_details', (req, res) => {
-    res.render('brewery_details')
+    fetchBreweryById(breweryId, function(brewery) {
+        res.render('brewery_details', {brewery: brewery})
+    }) 
 })
 
 app.get('/add-review', (req, res) => {
-    models.Reviews.findAll({})
+    models.Review.findAll({})
     .then(Reviews => {
         res.redirect('/add-review', {reviews: reviews})
     })   
