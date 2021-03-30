@@ -7,8 +7,6 @@ var bcrypt = require('bcryptjs')
 
 const fetchBreweryById = require('./scripts/fetchById.js')
 
-const models = require('./models')
-const { Op } = require('sequelize')
 
 
 const models = require('./models')
