@@ -125,9 +125,9 @@ app.get('/brewery/:breweryId', (req, res) => {
 
 app.post('/save-brewery', (req, res) => {
     const breweryId = parseInt(req.body.breweryId)
-    console.log(breweryId)
 
-    const username = "testing123"
+    const username = req.session.username
+
 
 
     let breweries = models.Breweries.build({
