@@ -31,7 +31,11 @@
   </form>
 
     <a href="/register"><button class='btn'>Register</button></a>
-    <a href="/"><button class='btn'>Login as guest</button></a>
+    <form method="POST" action="/login">
+      <input type="hidden" name="username" value="guest">
+      <input type="hidden" name="password" value="guest123">
+      <button class='btn'>Login as guest</button>
+    </form>
 
   </div>
 </body>
