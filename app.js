@@ -48,6 +48,7 @@ app.get('/register', (req,res) => {
 app.post('/register', (req, res) => {
 
     const username = req.body.username;
+   
     const password = req.body.password;
 
     bcrypt.genSalt(10, function (error, salt) {
@@ -73,10 +74,16 @@ app.post('/register', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    // check to see if user is logged in
-        // if logged in display user header
-    // if not logged in show sign in header
-    res.render('home')
+    console.log(req.session)
+    if(req.session) {
+        const username = req.session.username
+        res.render('home', { username: username })
+    } else {
+        const guest = req.body.guest
+        res.render('home', {guest: 'guest'})
+    }
+    
+    
 })
 
 app.get('/listings', authenticate, (req, res) => {
