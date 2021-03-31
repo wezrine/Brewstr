@@ -8,7 +8,6 @@ var bcrypt = require('bcryptjs')
 
 
 
-
 router.get('/', (req, res) => {
     res.render('login')
 })
@@ -29,7 +28,7 @@ router.post('/', (req,res) => {
   }).then(user => {
     console.log(user)
     if (!user) {
-      res.render('home');
+      res.render('register');
     } else {
       bcrypt.compare(req.body.password, user.password, function (err, result) {
 
@@ -39,9 +38,9 @@ router.post('/', (req,res) => {
         } else {
 
           res.render('listings', {message: "Wrong account details"})
-          // on page load click sign in button
-            // const signInButton = document.getElementById('signInButton')
-            // signInButton.click()
+          let signInButton = document.getElementById("signInButton")
+          signInButton.click()
+
         }
       })
     }
