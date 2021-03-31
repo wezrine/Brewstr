@@ -160,6 +160,13 @@ app.post('/delete-review', (req, res) => {
     })
 })// Load reviews page and adds a review
 
+app.get('/logout', (req,res) => {
+    req.session.destroy(function() {
+        res.redirect('/')
+    })
+})
+
+
 // Launch Server
 app.listen(3000, () => {
     console.log('Server is running...')
