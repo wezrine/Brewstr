@@ -68,7 +68,9 @@
 			<!-- Right Side Content / End -->
 			<div class="right-side">
 				<div class="header-widget">
-					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a>
+					<form method="POST" action="/listings">
+						<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login" id="signInButton"></i> Sign In</a>
+					</form>
 				</div>
 			</div>
 			<!-- Right Side Content / End -->
@@ -92,7 +94,9 @@
 
 						<!-- Login -->
 						<div class="tab-content" id="tab1" style="display: none;">
-							<form method="post" class="login">
+
+							<form method="POST" class="login" action="/login">
+
 
 								<p class="form-row form-row-wide">
 									<label for="username">Username:
@@ -106,19 +110,12 @@
 										<i class="im im-icon-Lock-2"></i>
 										<input class="input-text" type="password" name="password" id="password"/>
 									</label>
-									<span class="lost_password">
-										<a href="#" >Lost Your Password?</a>
-									</span>
 								</p>
 
 								<div class="form-row">
 									<input type="submit" class="button border margin-top-5" name="login" value="Login" />
-									<div class="checkboxes margin-top-10">
-										<input id="remember-me" type="checkbox" name="check">
-										<label for="remember-me">Remember Me</label>
-									</div>
+									<label style="color:red;">{{message}}</label>
 								</div>
-								
 							</form>
 						</div>
 

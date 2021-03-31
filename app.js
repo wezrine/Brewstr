@@ -5,6 +5,8 @@ const session = require('express-session')
 var bcrypt = require('bcryptjs')
 const models = require('./models')
 const { Op } = require('sequelize')
+const authenticate = require('./authentication/auth')
+
 const fetchBreweryById = require('./scripts/fetchById.js')
 
 // Mustache Express
@@ -22,17 +24,21 @@ app.use("/css",express.static('css'))
 app.use("/scripts",express.static('scripts'))
 app.use("/images",express.static('images'))
 app.use("/fonts",express.static('fonts'))
-
+// app.use(authenticate)
 // Setting up session
 app.use(session({
     secret: 'handmeabeer',
     saveUnitialized: true
 }))
 
+
+
 // Routes
 const loginRouter = require('./routes/login')
 const pgPromise = require('pg-promise')
 app.use('/login', loginRouter)
+
+
 
 // user registration (we can move to route soon)
 app.get('/register', (req,res) => {
@@ -68,10 +74,13 @@ app.post('/register', (req, res) => {
 })
 
 app.get('/', (req, res) => {
+    // check to see if user is logged in
+        // if logged in display user header
+    // if not logged in show sign in header
     res.render('home')
 })
 
-app.get('/listings', (req, res) => {
+app.get('/listings', authenticate, (req, res) => {
     res.render('listings')
 })
 
@@ -100,6 +109,21 @@ app.get('/brewery/:breweryId', (req, res) => {
     }) 
 })
 
+app.post('/save-brewery', (req, res) => {
+    const breweryId = parseInt(req.body.breweryId)
+    console.log(breweryId)
+    const username = "wezrine"
+
+    let breweries = models.Breweries.build({
+        username: username,
+        brewery_id: breweryId
+    })
+    breweries.save().then(savedBreweries => {
+        console.log(savedBreweries)
+        res.send('saved')
+    })
+})
+
 app.get('/add-review', (req, res) => {
     models.Review.findAll({})
     .then(Reviews => {
@@ -107,20 +131,24 @@ app.get('/add-review', (req, res) => {
     })   
 })
 
-app.post('/add-review', (req, res) =>{
-    const breweryId = req.body.fetchBreweryById
-    const name = req.body.name
+app.post('/add-review', (req, res) => {
+    const rating = req.body.rating
+    const username = req.body.username
     const review = req.body.review
+    brewery_id = req.body.brewery_id
+    UserId = req.body.UserId
 
-    let reviews = models.Review.build({
-        name:name,
-        review:review,
-        breweryId: breweryId
+    let BreweryReviews = models.BreweryReview.build({
+        username:username,
+        review: review,
+        brewery_id: brewery_id,
+        rating: rating,
+        UserId: UserId
 
     })
-    reviews.save().then(savedReviews=>{
-        console.log(savedReviews)
-        res.redirect(`/brewery/${savedReviews.breweryId}`)
+    BreweryReviews.save().then(savedBreweryReviews => {
+        console.log(savedBreweryReviews)
+        res.redirect(req.get('referer'))
     }).catch((error) =>{
         console.log(error)
         res.send('comment not added')
@@ -138,7 +166,11 @@ app.post('/delete-review', (req, res) => {
     }).then(deletedReviews => {
         res.redirect(req.get('referer'))
     })
+<<<<<<< HEAD
 })
+=======
+})// Load reviews page and adds a review
+>>>>>>> main
 
 // Launch Server
 app.listen(3000, () => {
