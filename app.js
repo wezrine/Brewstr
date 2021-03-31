@@ -35,6 +35,7 @@ app.use(session({
 
 // Routes
 const loginRouter = require('./routes/login')
+const pgPromise = require('pg-promise')
 app.use('/login', loginRouter)
 
 
@@ -73,20 +74,33 @@ app.post('/register', (req, res) => {
     })
 })
 
-app.get('/', (req, res) => {
-    console.log(req.session)
-    if(req.session) {
-        const username = req.session.username
-        res.render('home', { username: username })
-    } else {
-        const guest = req.body.guest
-        res.render('home', {guest: 'guest'})
-    }
-    
-    
+
+app.get('/', async (req, res) => {
+   console.log(req.session)
+      if(req.session) {
+          const username = req.session.username
+          res.render('home', { username: username })
+      } else {
+          const guest = req.body.guest
+          res.render('home', {guest: 'guest'})
+      }
+    const username = "wezrine" // get username from session
+
+    // get array of breweries belonging to username
+    let breweries = await models.Breweries.findAll({
+        where: {
+            username: {
+                [Op.eq]: username
+            }
+        }
+    })
+
+    // run fetch brewery on each one
+
+    res.render('home', {username: username, breweries: breweries})
 })
 
-app.get('/listings', authenticate, (req, res) => {
+app.get('/listings', (req, res) => {
     res.render('listings')
 })
 
@@ -103,15 +117,22 @@ app.get('/brewery/:breweryId', (req, res) => {
     //     return reviews
     // })
 
-    fetchBreweryById(breweryId, function(brewery) {
-        res.render('brewery_details', {brewery: brewery})
+    fetchBreweryById(breweryId, function(brewery) { 
+        models.BreweryReview.findAll({
+            where: {
+                BreweryId: brewery.id 
+            }
+        }).then(reviews => {
+            res.render('brewery_details', {brewery: brewery, reviews: reviews})
+        })
+
     }) 
 })
 
 app.post('/save-brewery', (req, res) => {
     const breweryId = parseInt(req.body.breweryId)
     console.log(breweryId)
-    const username = "wezrine"
+    const username = "notwezrine"
 
     let breweries = models.Breweries.build({
         username: username,
@@ -123,10 +144,10 @@ app.post('/save-brewery', (req, res) => {
     })
 })
 
-app.get('/add-review', (req, res) => {
-    models.Review.findAll({})
-    .then(Reviews => {
-        res.redirect('/add-review', {reviews: reviews})
+app.get('/added-reviews', (req, res) => {
+    models.BreweryReview.findAll({})
+    .then(BreweryReviews => {
+        res.redirect('/brewery_details', {BreweryReviews: BreweryReviews})
     })   
 })
 
@@ -137,17 +158,18 @@ app.post('/add-review', (req, res) => {
     brewery_id = req.body.brewery_id
     UserId = req.body.UserId
 
-    let BreweryReviews = models.BreweryReview.build({
+    let BreweryReview = models.BreweryReview.build({
         username:username,
         review: review,
-        brewery_id: brewery_id,
+        BreweryId: brewery_id,
         rating: rating,
         UserId: UserId
 
     })
-    BreweryReviews.save().then(savedBreweryReviews => {
-        console.log(savedBreweryReviews)
-        res.redirect(req.get('referer'))
+    console.log(BreweryReview)
+    BreweryReview.save().then(savedBreweryReview => {
+        console.log(savedBreweryReview)
+        res.render('brewery_details')   //req.get('referer')
     }).catch((error) =>{
         console.log(error)
         res.send('comment not added')
@@ -165,7 +187,7 @@ app.post('/delete-review', (req, res) => {
     }).then(deletedReviews => {
         res.redirect(req.get('referer'))
     })
-})// Load reviews page and adds a review
+})
 
 app.get('/logout', (req,res) => {
     req.session.destroy(function() {

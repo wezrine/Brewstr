@@ -267,11 +267,12 @@
 					{{#reviews}}
 						<li>
 							<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-							<div class="comment-content"><div class="arrow-comment"></div>
-								<div class="comment-by">{{name}}<i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
+							 <div class="comment-content"><div class="arrow-comment"></div>
+								<div class="comment-by">{{username}}{{rating}}<i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
 									<div class="star-rating" data-rating="5"></div>
+									
 								</div>
-								<p>{{review.text}}</p>
+									<p>{{review}}</p>
 								
 								<div class="review- mfp-gallery-container">
 									<a href="images/review-image-01.jpg" class="mfp-gallery"><img src="images/review-image-01.jpg" alt=""></a>
@@ -317,8 +318,8 @@
 				<form method="POST" action="/add-review" id="add-comment" class="add-comment">
 							<div class="row">
 								<div class="col-md-6">
-									<label>Name:</label>
-									<input type="type" value="" name="name"/>
+									<label>Username:</label>
+									<input type="type" value="" name="username"/>
 								</div>
 								<div>
 									<input type="hidden" value={{brewery.id}} name="brewery_id"/>
