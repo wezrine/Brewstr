@@ -76,17 +76,9 @@ app.post('/register', (req, res) => {
 
 
 app.get('/', async (req, res) => {
-   console.log(req.session)
-      if(req.session) {
-          const username = req.session.username
-          res.render('home', { username: username })
-      } else {
-          const guest = req.body.guest
-          res.render('home', {guest: 'guest'})
-      }
-    const username = "wezrine" // get username from session
 
-    // get array of breweries belonging to username
+    const username = req.session.username
+
     let breweries = await models.Breweries.findAll({
         where: {
             username: {
@@ -94,6 +86,8 @@ app.get('/', async (req, res) => {
             }
         }
     })
+
+    console.log(breweries)
 
     // run fetch brewery on each one
 
@@ -132,7 +126,7 @@ app.get('/brewery/:breweryId', (req, res) => {
 app.post('/save-brewery', (req, res) => {
     const breweryId = parseInt(req.body.breweryId)
     console.log(breweryId)
-    const username = "notwezrine"
+    const username = "testing123"
 
     let breweries = models.Breweries.build({
         username: username,
