@@ -4,14 +4,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/loginstyles.css">
+  <link rel="stylesheet" href="../css/registerstyles.css">
   <title>User Registration</title>
 </head>
 <body>
+<div class='loginBox'>
+  <h1>Registration</h1>
   <form method="POST" action="/register">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Register</button>
+    <div class='textbox'>
+      <i class="fa fa-user" aria-hidden="true"></i>
+      <input type="text" name="username" placeholder="username" required />
+    </div>
+    <div class='textbox'>
+      <i class="fa fa-lock" aria-hidden="true"></i>
+      <input type="password" name="password" placeholder="password" required />
+    </div>
+    
+    <button class='btn'>Register</button>
   </form>
+</div>
 
 
 </html>
