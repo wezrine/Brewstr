@@ -72,11 +72,26 @@ app.post('/register', (req, res) => {
     })
 })
 
-app.get('/', (req, res) => {
-    // check to see if user is logged in
-        // if logged in display user header
-    // if not logged in show sign in header
-    res.render('home')
+
+
+app.get('/', async (req, res) => {
+
+    const username = req.session.username
+
+    let breweries = await models.Breweries.findAll({
+        where: {
+            username: {
+                [Op.eq]: username
+            }
+        }
+    })
+
+    console.log(breweries)
+
+    // run fetch brewery on each one
+
+    res.render('home', {username: username, breweries: breweries})
+
 })
 
 app.get('/listings', (req, res) => {
@@ -111,7 +126,9 @@ app.get('/brewery/:breweryId', (req, res) => {
 app.post('/save-brewery', (req, res) => {
     const breweryId = parseInt(req.body.breweryId)
     console.log(breweryId)
-    const username = "wezrine"
+
+    const username = "testing123"
+
 
     let breweries = models.Breweries.build({
         username: username,
