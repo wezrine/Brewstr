@@ -68,8 +68,13 @@ function displayBreweries(result) {
                 </div>
             </a>
             <form method="POST" action="/save-brewery">
+                <input type="hidden" value="${brewery.name}" name="breweryName">
+                <input type="hidden" value="${brewery.street}" name="breweryStreet">
+                <input type="hidden" value="${brewery.city}" name="breweryCity">
+                <input type="hidden" value="${brewery.state}" name="breweryState">
+                <input type="hidden" value="${brewery.brewery_type}" name="breweryType">
                 <input type="hidden" value="${brewery.id}" name="breweryId">
-                <span class="like-icon"><button type="submit" style="width:100%;height:100%;opacity:0;border:none;"></button></span>
+                <span class="like-icon"><button type="submit"></button></span>
             </form>
         </div>
         </div>

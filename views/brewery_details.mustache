@@ -213,8 +213,8 @@
 				<div class="listing-links-container">
 
 					<ul class="listing-links contact-links">
-						<li><a href="tel:12-345-678" class="listing-links"><i class="fa fa-phone"></i>{{brewery.phone}}</a></li>
-						<li><a href="#" target="_blank"  class="listing-links"><i class="fa fa-link"></i>{{brewery.website_url}}</a></li>
+						<li><a href="tel:{{brewery.phone}}" class="listing-links"><i class="fa fa-phone"></i>{{brewery.phone}}</a></li>
+						<li><a href={{brewery.website_url}} target="_blank"  class="listing-links"><i class="fa fa-link"></i>{{brewery.website_url}}</a></li>
 					</ul>
 					<div class="clearfix"></div>
 
@@ -270,8 +270,8 @@
 							<li>
 								<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 								<div class="comment-content"><div class="arrow-comment"></div>
-									<div class="comment-by">{{username}}{{rating}}<i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
-										<div class="star-rating" data-rating="5"></div>
+									<div class="comment-by">{{username}}<i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
+										<div class="star-rating" data-rating="{{rating}}"></div>
 										
 									</div>
 										<p>{{review}}</p>

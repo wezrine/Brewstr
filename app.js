@@ -6,6 +6,7 @@ var bcrypt = require('bcryptjs')
 const models = require('./models')
 const { Op } = require('sequelize')
 const authenticate = require('./authentication/auth')
+var fetch = require('node-fetch')
 
 const fetchBreweryById = require('./scripts/fetchById.js')
 
@@ -31,13 +32,9 @@ app.use(session({
     saveUnitialized: true
 }))
 
-
-
 // Routes
 const loginRouter = require('./routes/login')
 app.use('/login', loginRouter)
-
-
 
 // user registration (we can move to route soon)
 app.get('/register', (req,res) => {
@@ -72,27 +69,39 @@ app.post('/register', (req, res) => {
     })
 })
 
-
-
 app.get('/', async (req, res) => {
 
     const username = req.session.username
 
-    let breweries = await models.Breweries.findAll({
+    let usersBreweries = await models.Brewery.findAll({
         where: {
             username: {
                 [Op.eq]: username
             }
-        }
+        },raw:true
     })
 
-    console.log(breweries)
+    // const promises = userBreweries.map((breweryId) => {
+    //    return fetchBreweryByIdPromise(breweryId)
+    // })
 
-    // run fetch brewery on each one
+    // Promise.all(promises).then(responses => {
+    //     Promise.all(responses.map(res => res.json())).then(values => res.render('home', {username: username, allUserBreweries: values}))
+    // })
 
-    res.render('home', {username: username, breweries: breweries})
-
+    res.render('home', {username: username, usersBreweries: usersBreweries})
 })
+
+// function fetchBreweryByIdPromise(id) {
+
+//     return fetch(`https://api.openbrewerydb.org/breweries/${id}`, {
+//         "method": "GET",
+//         "headers": {
+//             "x-rapidapi-key": "fb7457a28cmsh8446e8ae6d62e1dp123bf0jsn87f55a1983ba",
+//             "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com"
+//         }
+//     })
+// }
 
 app.get('/listings', (req, res) => {
     res.render('listings')
@@ -124,24 +133,28 @@ app.get('/brewery/:breweryId', (req, res) => {
 })
 
 app.post('/save-brewery', (req, res) => {
-    const breweryId = parseInt(req.body.breweryId)
-
     const username = req.session.username
-
-
-
-    let breweries = models.Breweries.build({
+    const name = req.body.breweryName
+    const street = req.body.breweryStreet
+    const city = req.body.breweryCity
+    const state = req.body.breweryState
+    const type = req.body.breweryType
+    const breweryId = parseInt(req.body.breweryId)
+    
+    let breweries = models.Brewery.build({
         username: username,
-        brewery_id: breweryId
+        name: name,
+        street: street,
+        city: city,
+        state: state,
+        type: type,
+        breweryId: breweryId
     })
     breweries.save().then(savedBreweries => {
         console.log(savedBreweries)
         res.send('saved')
     })
 })
-
-  
-
 
 app.post('/add-review', (req, res) => {
     const rating = req.body.rating
