@@ -31,6 +31,7 @@ app.use(session({
 
 // Routes
 const loginRouter = require('./routes/login')
+const pgPromise = require('pg-promise')
 app.use('/login', loginRouter)
 
 // user registration (we can move to route soon)
@@ -72,6 +73,13 @@ app.get('/', (req, res) => {
 
 app.get('/listings', (req, res) => {
     res.render('listings')
+})
+
+app.post('/listings', (req, res) => {
+    const city = req.body.city
+    const state = req.body.state
+
+    res.render('listings', {city: city, state: state})
 })
 
 app.get('/brewery/:breweryId', (req, res) => {
@@ -131,9 +139,6 @@ app.post('/delete-review', (req, res) => {
         res.redirect(req.get('referer'))
     })
 })
-
-
-// Load reviews page and adds a review
 
 // Launch Server
 app.listen(3000, () => {

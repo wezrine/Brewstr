@@ -270,70 +270,15 @@
 							</select>
 						</div>
 
-						<button class="button" onclick="window.location.href='/listings'">Search</button>
+						<form method="POST" action='/listings'>
+							{{! <input type="hidden" value="Testing" name="city" />
+							<input type="hidden" value="georgia" name="state" /> }}
+							<button class="button" id="homeSearchButton">Search</button>
+						</form>
 
 					</div>
 				</div>
 			</div>
-			<!-- Features Categories -->
-			<div class="row">
-				<div class="col-md-12">
-					<h5 class="highlighted-categories-headline">Or browse featured categories:</h5>
-					  
-					<div class="highlighted-categories">
-						<!-- Box -->
-						<a href="listings-list-with-sidebar.html" class="highlighted-category">
-					    	<h4>Micro</h4>
-						</a>	
-
-						<!-- Box -->
-						<a href="listings-list-full-width.html" class="highlighted-category">
-					    	<h4>Nano</h4>
-						</a>	
-
-						<!-- Box -->
-						<a href="listings-half-screen-map-list.html" class="highlighted-category">
-					    	<h4>Regional</h4>
-						</a>	
-
-						<!-- Box -->
-						<a href="listings-half-screen-map-list.html" class="highlighted-category">
-					    	<h4>Brewpub</h4>
-						</a>
-
-						<!-- Box -->
-						<a href="listings-half-screen-map-list.html" class="highlighted-category">
-					    	<h4>Large</h4>
-						</a>
-
-						<!-- Box -->
-						<a href="listings-half-screen-map-list.html" class="highlighted-category">
-					    	<h4>Planning</h4>
-						</a>	
-
-						<!-- Box -->
-						<a href="listings-half-screen-map-list.html" class="highlighted-category">
-					    	<h4>Bar</h4>
-						</a>
-
-						<!-- Box -->
-						<a href="listings-half-screen-map-list.html" class="highlighted-category">
-					    	<h4>Contract</h4>
-						</a>
-						<!-- Box -->
-						<a href="listings-half-screen-map-list.html" class="highlighted-category">
-					    	<h4>Proprietor</h4>
-						</a>
-
-						<!-- Box -->
-						<a href="listings-half-screen-map-list.html" class="highlighted-category">
-					    	<h4>Closed</h4>
-						</a>					
-					</div>
-					
-				</div>
-			</div>
-			<!-- Featured Categories - End -->
 		</div>
 
 	</div>
@@ -674,7 +619,6 @@ $('.msps-slider').slick({
 });
 
 </script>
-
 
 </body>
 </html>
