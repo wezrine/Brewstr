@@ -119,19 +119,23 @@ app.get('/add-review', (req, res) => {
 })
 
 app.post('/add-review', (req, res) => {
-    const breweryId = req.body.fetchBreweryById
-    const name = req.body.name
+    const rating = req.body.rating
+    const username = req.body.username
     const review = req.body.review
+    brewery_id = req.body.brewery_id
+    UserId = req.body.UserId
 
-    let reviews = models.Review.build({
-        name: name,
+    let BreweryReviews = models.BreweryReview.build({
+        username:username,
         review: review,
-        breweryId: breweryId
+        brewery_id: brewery_id,
+        rating: rating,
+        UserId: UserId
 
     })
-    reviews.save().then(savedReviews => {
-        console.log(savedReviews)
-        res.redirect(`/brewery/${savedReviews.breweryId}`)
+    BreweryReviews.save().then(savedBreweryReviews => {
+        console.log(savedBreweryReviews)
+        res.redirect(req.get('referer'))
     }).catch((error) =>{
         console.log(error)
         res.send('comment not added')
