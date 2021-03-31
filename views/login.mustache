@@ -6,20 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/main-color.css" id="colors">
+ <!-- <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/main-color.css" id="colors"> -->
+  <link rel="stylesheet" href="/css/loginstyles.css">
 </head>
 <body>
   
+  <div class='loginBox'>
+    <h1>Login</h1>
 
-  <form action="/login" method="POST">
-    <input type="text" placeholder="username" name="username" />
-    <input type="password" placeholder="password" name="password" />
-    <button>Login</button>
+    <div class='textbox'>
+      <form action="/login" method="POST">
+        <i class="fa fa-beer" aria-hidden="true"></i>        
+        <input type="text" placeholder="username" name="username" id='username' required/>
+      </div>
+
+    <div class='textbox'>
+      <i class="fa fa-lock" aria-hidden="true"></i>
+      <input type="password" placeholder="password" name="password" required />
+    </div>
+
+    <button class='btn'>Login</button>
 
   </form>
-    <button>Continue as guest</button>
-    <a href="/register"><button>Register</button></a>
 
+    <a href="/register"><button class='btn'>Register</button></a>
+  </div>
 </body>
 </html>
