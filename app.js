@@ -169,7 +169,7 @@ app.post('/add-review', (req, res) => {
     console.log(BreweryReview)
     BreweryReview.save().then(savedBreweryReview => {
         console.log(savedBreweryReview)
-        res.render('brewery_details')   //req.get('referer')
+        res.redirect(`/brewery/${brewery_id}`)
     }).catch((error) =>{
         console.log(error)
         res.send('comment not added')
