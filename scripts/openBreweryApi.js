@@ -1,7 +1,6 @@
 const cityTextBox = document.getElementById("cityTextBox")
 const stateDropdown = document.getElementById("stateDropdown")
 const submitButton = document.getElementById("submitButton")
-
 const breweriesContainer = document.getElementById("breweriesContainer")
 
 function fetchBreweriesByQueryString() {
@@ -11,6 +10,7 @@ function fetchBreweriesByQueryString() {
     const state = urlParams.get('state')
     fetchBreweriesByCityState(city, state)
 }
+
 fetchBreweriesByQueryString()
 
 function fetchBreweriesByCityState(city, state) {
