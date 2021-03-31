@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const userModel = require('../models')
 var bcrypt = require('bcryptjs')
-
+const session = require('express-session')
 
 
 
@@ -26,7 +26,8 @@ router.post('/', (req,res) => {
       username: req.body.username
     }
   }).then(user => {
-    console.log(user)
+    console.log(user.username)
+    req.session.username = user.username  
     if (!user) {
       res.render('register');
     } else {

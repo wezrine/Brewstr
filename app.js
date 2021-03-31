@@ -49,6 +49,7 @@ app.get('/register', (req,res) => {
 app.post('/register', (req, res) => {
 
     const username = req.body.username;
+   
     const password = req.body.password;
 
     bcrypt.genSalt(10, function (error, salt) {
@@ -73,8 +74,16 @@ app.post('/register', (req, res) => {
     })
 })
 
-app.get('/', async (req, res) => {
 
+app.get('/', async (req, res) => {
+   console.log(req.session)
+      if(req.session) {
+          const username = req.session.username
+          res.render('home', { username: username })
+      } else {
+          const guest = req.body.guest
+          res.render('home', {guest: 'guest'})
+      }
     const username = "wezrine" // get username from session
 
     // get array of breweries belonging to username
