@@ -4,6 +4,15 @@ const submitButton = document.getElementById("submitButton")
 
 const breweriesContainer = document.getElementById("breweriesContainer")
 
+function fetchBreweriesByQueryString() {
+    const urlParams = new
+    URLSearchParams(window.location.search)
+    const city = urlParams.get('city')
+    const state = urlParams.get('state')
+    fetchBreweriesByCityState(city, state)
+}
+fetchBreweriesByQueryString()
+
 function fetchBreweriesByCityState(city, state) {
     fetch(`https://api.openbrewerydb.org/breweries?by_state=${state}&by_city=${city}`, {
         "method": "GET",

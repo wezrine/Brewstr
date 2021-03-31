@@ -80,7 +80,7 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.get('/listings', authenticate, (req, res) => {
+app.get('/listings', (req, res) => {
     res.render('listings')
 })
 
@@ -166,11 +166,7 @@ app.post('/delete-review', (req, res) => {
     }).then(deletedReviews => {
         res.redirect(req.get('referer'))
     })
-<<<<<<< HEAD
 })
-=======
-})// Load reviews page and adds a review
->>>>>>> main
 
 // Launch Server
 app.listen(3000, () => {

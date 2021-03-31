@@ -207,13 +207,13 @@
 
 						<div class="main-search-input-item location">
 							<div id="autocomplete-container">
-								<input id="autocomplete-input" type="text" placeholder="City">
+								<input id="homeCityTextBox" type="text" placeholder="City">
 							</div>
 							<a href="#"><i class="fa fa-map-marker"></i></a>
 						</div>
 
 						<div class="main-search-input-item">
-							<select data-placeholder="State" class="chosen-select" >
+							<select id="homeStateDropdown" data-placeholder="State" class="chosen-select" >
 									<option value="" disabled selected>State</option>
 									<option value="alabama">Alabama</option>
 									<option value="alaska">Alaska</option>
@@ -269,11 +269,8 @@
 							</select>
 						</div>
 
-						<form method="POST" action='/listings'>
-							{{! <input type="hidden" value="Testing" name="city" />
-							<input type="hidden" value="georgia" name="state" /> }}
-							<button class="button" id="homeSearchButton">Search</button>
-						</form>
+						<button class="button" id="homeSearchButton">Search</button>
+
 
 					</div>
 				</div>
@@ -618,6 +615,8 @@ $('.msps-slider').slick({
 });
 
 </script>
+
+<script src="/scripts/homepageSearch.js"></script>
 
 </body>
 </html>
