@@ -5,6 +5,7 @@ const session = require('express-session')
 var bcrypt = require('bcryptjs')
 const models = require('./models')
 const { Op } = require('sequelize')
+const authenticate = require('./authentication/auth')
 
 const fetchBreweryById = require('./scripts/fetchById.js')
 
@@ -23,16 +24,20 @@ app.use("/css",express.static('css'))
 app.use("/scripts",express.static('scripts'))
 app.use("/images",express.static('images'))
 app.use("/fonts",express.static('fonts'))
-
+// app.use(authenticate)
 // Setting up session
 app.use(session({
     secret: 'handmeabeer',
     saveUnitialized: true
 }))
 
+
+
 // Routes
 const loginRouter = require('./routes/login')
 app.use('/login', loginRouter)
+
+
 
 // user registration (we can move to route soon)
 app.get('/register', (req,res) => {
@@ -74,7 +79,7 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.get('/listings', (req, res) => {
+app.get('/listings', authenticate, (req, res) => {
     res.render('listings')
 })
 
