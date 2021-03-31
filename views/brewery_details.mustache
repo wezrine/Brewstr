@@ -265,21 +265,25 @@
 				<section class="comments listing-reviews">
 					<ul>
 					{{#reviews}}
-						<li>
-							<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-							 <div class="comment-content"><div class="arrow-comment"></div>
-								<div class="comment-by">{{username}}{{rating}}<i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
-									<div class="star-rating" data-rating="5"></div>
+						<form method = "POST" action = "/delete-review">
+                    	<input type="hidden" value={{id}} name="BreweryReviewId" />
+							<li>
+								<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
+								<div class="comment-content"><div class="arrow-comment"></div>
+									<div class="comment-by">{{username}}{{rating}}<i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
+										<div class="star-rating" data-rating="5"></div>
+										
+									</div>
+										<p>{{review}}</p>
 									
+									<div class="review- mfp-gallery-container">
+										<a href="images/review-image-01.jpg" class="mfp-gallery"><img src="images/review-image-01.jpg" alt=""></a>
+									</div>
+									<a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>12</span></a>
 								</div>
-									<p>{{review}}</p>
-								
-								<div class="review- mfp-gallery-container">
-									<a href="images/review-image-01.jpg" class="mfp-gallery"><img src="images/review-image-01.jpg" alt=""></a>
-								</div>
-								<a href="#" class="rate-review"><i class="sl sl-icon-like"></i> Helpful Review <span>12</span></a>
-							</div>
-						</li>
+							</li>
+							<button>Delete</button>
+						</form>
 					{{/reviews}}
 					</ul>
 

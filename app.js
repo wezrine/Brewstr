@@ -35,7 +35,6 @@ app.use(session({
 
 // Routes
 const loginRouter = require('./routes/login')
-const pgPromise = require('pg-promise')
 app.use('/login', loginRouter)
 
 
@@ -49,7 +48,6 @@ app.get('/register', (req,res) => {
 app.post('/register', (req, res) => {
 
     const username = req.body.username;
-   
     const password = req.body.password;
 
     bcrypt.genSalt(10, function (error, salt) {
@@ -75,6 +73,7 @@ app.post('/register', (req, res) => {
 })
 
 
+
 app.get('/', async (req, res) => {
 
     const username = req.session.username
@@ -92,6 +91,7 @@ app.get('/', async (req, res) => {
     // run fetch brewery on each one
 
     res.render('home', {username: username, breweries: breweries})
+
 })
 
 app.get('/listings', (req, res) => {
@@ -125,7 +125,10 @@ app.get('/brewery/:breweryId', (req, res) => {
 
 app.post('/save-brewery', (req, res) => {
     const breweryId = parseInt(req.body.breweryId)
+
     const username = req.session.username
+
+
 
     let breweries = models.Breweries.build({
         username: username,
@@ -137,19 +140,15 @@ app.post('/save-brewery', (req, res) => {
     })
 })
 
-app.get('/added-reviews', (req, res) => {
-    models.BreweryReview.findAll({})
-    .then(BreweryReviews => {
-        res.redirect('/brewery_details', {BreweryReviews: BreweryReviews})
-    })   
-})
+  
+
 
 app.post('/add-review', (req, res) => {
     const rating = req.body.rating
     const username = req.body.username
     const review = req.body.review
-    brewery_id = req.body.brewery_id
-    UserId = req.body.UserId
+    const brewery_id = req.body.brewery_id
+    const UserId = req.body.UserId
 
     let BreweryReview = models.BreweryReview.build({
         username:username,
@@ -162,7 +161,7 @@ app.post('/add-review', (req, res) => {
     console.log(BreweryReview)
     BreweryReview.save().then(savedBreweryReview => {
         console.log(savedBreweryReview)
-        res.redirect(`/brewery/${brewery_id}`)
+        res.redirect(`/brewery/${brewery_id}`)  
     }).catch((error) =>{
         console.log(error)
         res.send('comment not added')
@@ -171,23 +170,16 @@ app.post('/add-review', (req, res) => {
 })
 
 app.post('/delete-review', (req, res) => {
-    const ReviewsId = req.body.ReviewsId
-
-    models.Blogs.destroy({
+    const BreweryReviewId = req.body.BreweryReviewId
+    models.BreweryReview.destroy({
         where: {
-            id: ReviewsId 
+            id: BreweryReviewId 
         }
-    }).then(deletedReviews => {
+    }).then(deletedReview => {
+        console.log(deletedReview)
         res.redirect(req.get('referer'))
     })
-})
-
-app.get('/logout', (req,res) => {
-    req.session.destroy(function() {
-        res.redirect('/')
-    })
-})
-
+})// Load reviews page and adds a review
 
 // Launch Server
 app.listen(3000, () => {
