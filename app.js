@@ -90,7 +90,7 @@ app.get('/listings', authenticate, (req, res) => {
     res.render('listings', {username: username})
 })
 
-app.get('/brewery/:breweryId', authenticate,, (req, res) => {
+app.get('/brewery/:breweryId', authenticate, (req, res) => {
     const username = req.session.username
     const breweryId = req.params.breweryId
 
@@ -114,6 +114,8 @@ app.get('/brewery/:breweryId', authenticate,, (req, res) => {
         })
     }) 
 })
+
+
 
 app.post('/save-brewery', (req, res) => {
     const username = req.session.username
@@ -179,10 +181,17 @@ app.post('/delete-review', (req, res) => {
 
 
 app.get('/user-profile', authenticate, (req, res) => {
-    const username = req.session.username
 
-    res.render('user_page', {username: username})
+    const username = req.session.username
+    models.BreweryReview.findAll({
+        where: {
+            username: username
+        }
+    }).then(reviews => {
+        res.render('user_page', {username: username, reviews: reviews })
+    })
 })
+
 
 
 app.get("/logout", function(req, res) {
