@@ -229,6 +229,6 @@ app.get("/logout", function(req, res) {
 
 
 // Launch Server
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Server is running...')
 })
