@@ -1,5 +1,10 @@
 
+// Open BreweryReviews Model
+    // filter out only reviews with breweryid we want
+    // create an array of reviews
+    // average of array
 
+//
 
 function ratingAverage () {
 

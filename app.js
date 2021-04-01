@@ -71,9 +71,9 @@ app.post('/register', (req, res) => {
 
 app.get('/', async (req, res) => {
     
-    // if (req.session.username === null) {
-    //     res.redirect('/login')
-    // }
+    if (req.session.username === null) {
+        res.redirect('/login')
+    }
 
     const username = req.session.username
 
@@ -89,21 +89,14 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/listings', (req, res) => {
-    res.render('listings')
+    const username = req.session.username
+
+    res.render('listings', {username: username})
 })
 
 app.get('/brewery/:breweryId', (req, res) => {
+    const username = req.session.username
     const breweryId = req.params.breweryId
-
-    // models.Review.findAll({
-    //     where: {
-    //         ReviewBreweryId: {
-    //             [Op.eq]: breweryId
-    //         }
-    //     }
-    // }).then(reviews => {
-    //     return reviews
-    // })
 
     fetchBreweryById(breweryId, function(brewery) { 
         models.BreweryReview.findAll({
@@ -111,9 +104,18 @@ app.get('/brewery/:breweryId', (req, res) => {
                 BreweryId: brewery.id 
             }
         }).then(reviews => {
-            res.render('brewery_details', {brewery: brewery, reviews: reviews})
+            let ratings = reviews.map((review) => review.rating)
+            var ratingsLength = ratings.length
+            
+            var total = 0
+            for (let index = 0; index < ratings.length; index++) {
+                total += ratings[index]
+                console.log(total)
+            }
+            var avgRating = Math.round(((total / ratings.length) + Number.EPSILON) * 100) / 100
+            
+            res.render('brewery_details', {username: username, brewery: brewery, reviews: reviews, avgRating, ratingsLength})
         })
-
     }) 
 })
 
@@ -177,6 +179,12 @@ app.post('/delete-review', (req, res) => {
         console.log(deletedReview)
         res.redirect(req.get('referer'))
     })
+})
+
+app.get('/user-profile', authenticate, (req, res) => {
+    const username = req.session.username
+
+    res.render('user_page', {username: username})
 })
 
 // Launch Server
