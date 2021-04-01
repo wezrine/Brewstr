@@ -18227,8 +18227,8 @@ body .category-box-btn:hover {
 	.listing-item-container.list-layout .listing-item-image {min-height: auto; }
 
 	.listing-item-container.list-layout span.like-icon {
-	    top: -15px;
-	    transform: translateY(-100%);
+	    top: 0;
+	    /* transform: translateY(-100%); */
 	    background-color: rgba(32,32,32,0.4);
 	    color: #fff;
 	    right: 35px;
