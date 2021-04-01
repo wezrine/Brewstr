@@ -8,7 +8,7 @@ function authenticate(req,res,next) {
     }
   } else {
     res.redirect('/login')
-    // have popup sign-in pop up, .click()?
+    
   }
 }
 
