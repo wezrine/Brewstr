@@ -6,6 +6,7 @@ var bcrypt = require('bcryptjs')
 const models = require('./models')
 const { Op } = require('sequelize')
 const authenticate = require('./authentication/auth')
+var fetch = require('node-fetch')
 
 const fetchBreweryById = require('./scripts/fetchById.js')
 
@@ -31,13 +32,9 @@ app.use(session({
     saveUnitialized: true
 }))
 
-
-
 // Routes
 const loginRouter = require('./routes/login')
 app.use('/login', loginRouter)
-
-
 
 // user registration (we can move to route soon)
 app.get('/register', (req,res) => {
@@ -72,26 +69,23 @@ app.post('/register', (req, res) => {
     })
 })
 
-
-
 app.get('/', async (req, res) => {
+    
+    // if (req.session.username === null) {
+    //     res.redirect('/login')
+    // }
 
     const username = req.session.username
 
-    let breweries = await models.Breweries.findAll({
+    let usersBreweries = await models.Brewery.findAll({
         where: {
             username: {
                 [Op.eq]: username
             }
-        }
+        },raw:true
     })
 
-    console.log(breweries)
-
-    // run fetch brewery on each one
-
-    res.render('home', {username: username, breweries: breweries})
-
+    res.render('home', {username: username, usersBreweries: usersBreweries})
 })
 
 app.get('/listings', (req, res) => {
@@ -124,24 +118,28 @@ app.get('/brewery/:breweryId', (req, res) => {
 })
 
 app.post('/save-brewery', (req, res) => {
-    const breweryId = parseInt(req.body.breweryId)
-
     const username = req.session.username
-
-
-
-    let breweries = models.Breweries.build({
+    const name = req.body.breweryName
+    const street = req.body.breweryStreet
+    const city = req.body.breweryCity
+    const state = req.body.breweryState
+    const type = req.body.breweryType
+    const breweryId = parseInt(req.body.breweryId)
+    
+    let breweries = models.Brewery.build({
         username: username,
-        brewery_id: breweryId
+        name: name,
+        street: street,
+        city: city,
+        state: state,
+        type: type,
+        breweryId: breweryId
     })
     breweries.save().then(savedBreweries => {
         console.log(savedBreweries)
         res.send('saved')
     })
 })
-
-  
-
 
 app.post('/add-review', (req, res) => {
     const rating = req.body.rating
@@ -179,7 +177,7 @@ app.post('/delete-review', (req, res) => {
         console.log(deletedReview)
         res.redirect(req.get('referer'))
     })
-})// Load reviews page and adds a review
+})
 
 // Launch Server
 app.listen(3000, () => {

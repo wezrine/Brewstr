@@ -35,11 +35,6 @@ $(document).ready(function(){
 					mmenuAPI.open();
 				});
 
-				mmenuAPI.bind( "open:finish", function() {
-				   setTimeout(function() {
-				      $icon.addClass( "is-active" );
-				   });
-				});
 				mmenuAPI.bind( "close:finish", function() {
 				   setTimeout(function() {
 				      $icon.removeClass( "is-active" );
