@@ -3,7 +3,7 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>Listeo</title>
+<title>Brewstr | Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -33,7 +33,7 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="/"><img src="images/logo.png" alt=""></a>
+					<a href="/"><img src="images/brewsterLogo1.png" alt=""></a>
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -44,29 +44,12 @@
 						</span>
 					</button>
 				</div>
-
-				<!-- Main Navigation -->
-				<nav id="navigation" class="style-1">
-					<ul id="responsive">
-
-						<li><a href="#">User</a>
-							<ul>
-								<li><a href="dashboard-my-listings.html">My Breweries</a></li>
-								<li><a href="dashboard-reviews.html">My Reviews</a></li>
-								<li><a href="dashboard-my-profile.html">My Profile</a></li>
-							</ul>
-						</li>
-
-					</ul>
-				</nav>
-				<div class="clearfix"></div>
-				<!-- Main Navigation / End -->
-				
+				 
 			</div>
 			<!-- Left Side Content / End -->
 
 
-			<!-- Right Side Content / End -->
+			<!-- Right Side Content -->
 			<div class="right-side">
 				<!-- Header Widget -->
 				<div class="header-widget">
@@ -75,14 +58,13 @@
 
 					<div class="user-menu">
 
-						<div class="user-name"><span><img src="images/dashboard-avatar.jpg" alt="">Hi, {{username}}</span></div>
+						<div class="user-name"><span><img src="images/dashboard-avatar.jpg" alt=""></span>Hi, {{username}}</div>
 
 
 						<ul>
-							<li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
-							<li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>
-							<li><a href="dashboard-bookings.html"><i class="fa fa-calendar-check-o"></i> Bookings</a></li>
-							
+							<li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> My Profile</a></li>
+							<li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> My Breweries</a></li>
+							<li><a href="dashboard-bookings.html"><i class="fa fa-calendar-check-o"></i> My Reviews</a></li>
 							<li><a href="index.html"><i class="sl sl-icon-power"></i> Logout</a></li>
 						</ul>
 
@@ -93,96 +75,6 @@
 				<!-- Header Widget / End -->
 			</div>
 			<!-- Right Side Content / End -->
-
-			<!-- Sign In Popup -->
-			<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
-
-				<div class="small-dialog-header">
-					<h3>Sign In</h3>
-				</div>
-
-				<!--Tabs -->
-				<div class="sign-in-form style-1">
-
-					<ul class="tabs-nav">
-						<li class=""><a href="#tab1">Log In</a></li>
-						<li><a href="#tab2">Register</a></li>
-					</ul>
-
-					<div class="tabs-container alt">
-
-						<!-- Login -->
-						<div class="tab-content" id="tab1" style="display: none;">
-							<form method="POST" class="login" action="/login">
-
-								<p class="form-row form-row-wide">
-									<label for="username">Username:
-										<i class="im im-icon-Male"></i>
-										<input type="text" class="input-text" name="username" id="username" value="" />
-									</label>
-								</p>
-
-								<p class="form-row form-row-wide">
-									<label for="password">Password:
-										<i class="im im-icon-Lock-2"></i>
-										<input class="input-text" type="password" name="password" id="password"/>
-									</label>
-
-								</p>
-
-								<div class="form-row">
-									<input type="submit" class="button border margin-top-5" name="login" value="Login" />
-									<div class="checkboxes margin-top-10">
-										<input id="remember-me" type="checkbox" name="check">
-										<label for="remember-me">Remember Me</label>
-									</div>
-								</div>
-								
-							</form>
-						</div>
-
-						<!-- Register -->
-						<div class="tab-content" id="tab2" style="display: none;">
-
-							<form method="post" class="register">
-								
-							<p class="form-row form-row-wide">
-								<label for="username2">Username:
-									<i class="im im-icon-Male"></i>
-									<input type="text" class="input-text" name="username" id="username2" value="" />
-								</label>
-							</p>
-								
-							<p class="form-row form-row-wide">
-								<label for="email2">Email Address:
-									<i class="im im-icon-Mail"></i>
-									<input type="text" class="input-text" name="email" id="email2" value="" />
-								</label>
-							</p>
-
-							<p class="form-row form-row-wide">
-								<label for="password1">Password:
-									<i class="im im-icon-Lock-2"></i>
-									<input class="input-text" type="password" name="password1" id="password1"/>
-								</label>
-							</p>
-
-							<p class="form-row form-row-wide">
-								<label for="password2">Repeat Password:
-									<i class="im im-icon-Lock-2"></i>
-									<input class="input-text" type="password" name="password2" id="password2"/>
-								</label>
-							</p>
-
-							<input type="submit" class="button border fw margin-top-10" name="register" value="Register" />
-	
-							</form>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- Sign In Popup / End -->
 
 		</div>
 	</div>
@@ -320,7 +212,6 @@
 		<div class="col-md-12">
 			<h3 class="headline margin-top-75">
 					<strong class="headline-with-separator">Your Breweries</strong>
-				<span>Discover top-rated local businesses</span>
 			</h3>
 		</div>
 
@@ -335,9 +226,9 @@
 						<img src="images/listing-item-01.jpg" alt="">
 						
 						<div class="listing-item-content">
-							<span class="tag">{{type}}</span>
 							<h3>{{name}}</h3>
 							<span>{{street}} {{city}}, {{state}}</span>
+							<span class="tag home-type">{{type}}</span>
 						</div>
 						<span class="like-icon"></span>
 					</div>
@@ -361,7 +252,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5 col-sm-6">
-				<img class="footer-logo" src="images/logo.png" alt="">
+				<img class="footer-logo" src="images/brewsterLogo1.png" alt="">
 				<br><br>
 				<p>Brewstr is an app made for DigitalCrafts Backend Project. Add a description of the project here.</p>
 			</div>

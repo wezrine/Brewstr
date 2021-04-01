@@ -4,20 +4,9 @@ const userModel = require('../models')
 var bcrypt = require('bcryptjs')
 const session = require('express-session')
 
-
-
-
-
 router.get('/', (req, res) => {
     res.render('login')
 })
-
-
-
-
-
-
-
 
 router.post('/', (req,res) => {
   // name of page = dwdwdwd

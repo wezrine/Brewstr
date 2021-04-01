@@ -921,7 +921,10 @@ body #navigation.style-1 ul ul li:hover ul li a:hover { color: #66676b; }
 	margin-left: 25px;
 }
 
-.user-menu .user-name { transition: 0.2s; }
+.user-menu .user-name { 
+	transition: 0.2s; 
+
+}
 
 /*
 .user-menu .user-name {
@@ -11423,6 +11426,10 @@ section.fullwidth .listing-item-container.list-layout,
 	color: #fff;
 	font-weight: 400;
 	margin-bottom: 9px;
+}
+
+.home-type {
+	margin-top: 7px;
 }
 
 .listing-item-container.list-layout span.tag {

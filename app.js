@@ -70,6 +70,10 @@ app.post('/register', (req, res) => {
 })
 
 app.get('/', async (req, res) => {
+    
+    // if (req.session.username === null) {
+    //     res.redirect('/login')
+    // }
 
     const username = req.session.username
 
@@ -81,27 +85,8 @@ app.get('/', async (req, res) => {
         },raw:true
     })
 
-    // const promises = userBreweries.map((breweryId) => {
-    //    return fetchBreweryByIdPromise(breweryId)
-    // })
-
-    // Promise.all(promises).then(responses => {
-    //     Promise.all(responses.map(res => res.json())).then(values => res.render('home', {username: username, allUserBreweries: values}))
-    // })
-
     res.render('home', {username: username, usersBreweries: usersBreweries})
 })
-
-// function fetchBreweryByIdPromise(id) {
-
-//     return fetch(`https://api.openbrewerydb.org/breweries/${id}`, {
-//         "method": "GET",
-//         "headers": {
-//             "x-rapidapi-key": "fb7457a28cmsh8446e8ae6d62e1dp123bf0jsn87f55a1983ba",
-//             "x-rapidapi-host": "brianiswu-open-brewery-db-v1.p.rapidapi.com"
-//         }
-//     })
-// }
 
 app.get('/listings', (req, res) => {
     res.render('listings')
@@ -192,7 +177,7 @@ app.post('/delete-review', (req, res) => {
         console.log(deletedReview)
         res.redirect(req.get('referer'))
     })
-})// Load reviews page and adds a review
+})
 
 // Launch Server
 app.listen(3000, () => {
