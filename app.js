@@ -90,7 +90,7 @@ app.get('/listings', authenticate, (req, res) => {
     res.render('listings', {username: username})
 })
 
-app.get('/brewery/:breweryId', authenticate,, (req, res) => {
+app.get('/brewery/:breweryId', authenticate, (req, res) => {
     const username = req.session.username
     const breweryId = req.params.breweryId
 
