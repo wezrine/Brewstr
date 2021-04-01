@@ -4,10 +4,10 @@ function authenticate(req,res,next) {
     if(req.session.username) {
       next() // proceed to original request
     } else {
-      res.redirect('/')
+      res.redirect('/login')
     }
   } else {
-    res.redirect('/')
+    res.redirect('/login')
     // have popup sign-in pop up, .click()?
   }
 }
