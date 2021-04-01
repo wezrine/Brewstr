@@ -69,14 +69,9 @@ app.post('/register', (req, res) => {
     })
 })
 
-app.get('/', async (req, res) => {
+app.get('/' ,authenticate ,async (req, res) => {
     
-    if (req.session.username === null) {
-        res.redirect('/login')
-    }
-
     const username = req.session.username
-
     let usersBreweries = await models.Brewery.findAll({
         where: {
             username: {
@@ -88,13 +83,14 @@ app.get('/', async (req, res) => {
     res.render('home', {username: username, usersBreweries: usersBreweries})
 })
 
-app.get('/listings', (req, res) => {
+
+app.get('/listings', authenticate, (req, res) => {
     const username = req.session.username
 
     res.render('listings', {username: username})
 })
 
-app.get('/brewery/:breweryId', (req, res) => {
+app.get('/brewery/:breweryId', authenticate,, (req, res) => {
     const username = req.session.username
     const breweryId = req.params.breweryId
 
@@ -181,11 +177,27 @@ app.post('/delete-review', (req, res) => {
     })
 })
 
+
 app.get('/user-profile', authenticate, (req, res) => {
     const username = req.session.username
 
     res.render('user_page', {username: username})
 })
+
+
+app.get("/logout", function(req, res) {
+    if(session) {
+        req.session.destroy(() => {
+            res.redirect("/login");
+           })
+    } else {
+        if(req.session.username == NULL) {
+            res.redirect('/login')
+        }
+    }
+   
+   })
+
 
 // Launch Server
 app.listen(3000, () => {
