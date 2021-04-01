@@ -109,8 +109,8 @@
 							{{brewery.street}} {{brewery.city}}, {{brewery.state}} {{brewery.postal_code}}
 						</a>
 					</span>
-					<div class="star-rating" data-rating="5">
-						<div class="rating-counter"><a href="#listing-reviews">(31 reviews)</a></div>
+					<div class="star-rating" data-rating="{{avgRating}}">
+						<div class="rating-counter"><a href="#listing-reviews">({{ratingsLength}} Ratings)</a></div>
 					</div>
 				</div>
 			</div>
@@ -160,9 +160,9 @@
 				<!-- Rating Overview -->
 				<div class="rating-overview">
 					<div class="rating-overview-box">
-						<span class="rating-overview-box-total">4.2</span>
+						<span class="rating-overview-box-total">{{avgRating}}</span>
 						<span class="rating-overview-box-percent">out of 5.0</span>
-						<div class="star-rating" data-rating="{{rating}}"></div>
+						<div class="star-rating" data-rating="{{avgRating}}"></div>
 					</div>
 				</div>
 				<!-- Rating Overview / End -->
@@ -179,7 +179,7 @@
 							<li>
 								<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 								<div class="comment-content"><div class="arrow-comment"></div>
-									<div class="comment-by">{{username}}<i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date">June 2019</span>
+									<div class="comment-by">{{username}}<span class="date">{{createdAt}}</span>
 										<div class="star-rating" data-rating="{{rating}}"></div>
 										
 									</div>

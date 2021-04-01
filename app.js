@@ -71,7 +71,6 @@ app.post('/register', (req, res) => {
 
 app.get('/' ,authenticate ,async (req, res) => {
     
-
     const username = req.session.username
     let usersBreweries = await models.Brewery.findAll({
         where: {
@@ -84,22 +83,16 @@ app.get('/' ,authenticate ,async (req, res) => {
     res.render('home', {username: username, usersBreweries: usersBreweries})
 })
 
-app.get('/listings', authenticate,(req, res) => {
-    res.render('listings')
+
+app.get('/listings', authenticate, (req, res) => {
+    const username = req.session.username
+
+    res.render('listings', {username: username})
 })
 
-app.get('/brewery/:breweryId',authenticate, (req, res) => {
+app.get('/brewery/:breweryId', authenticate,, (req, res) => {
+    const username = req.session.username
     const breweryId = req.params.breweryId
-
-    // models.Review.findAll({
-    //     where: {
-    //         ReviewBreweryId: {
-    //             [Op.eq]: breweryId
-    //         }
-    //     }
-    // }).then(reviews => {
-    //     return reviews
-    // })
 
     fetchBreweryById(breweryId, function(brewery) { 
         models.BreweryReview.findAll({
@@ -107,9 +100,18 @@ app.get('/brewery/:breweryId',authenticate, (req, res) => {
                 BreweryId: brewery.id 
             }
         }).then(reviews => {
-            res.render('brewery_details', {brewery: brewery, reviews: reviews})
+            let ratings = reviews.map((review) => review.rating)
+            var ratingsLength = ratings.length
+            
+            var total = 0
+            for (let index = 0; index < ratings.length; index++) {
+                total += ratings[index]
+                console.log(total)
+            }
+            var avgRating = Math.round(((total / ratings.length) + Number.EPSILON) * 100) / 100
+            
+            res.render('brewery_details', {username: username, brewery: brewery, reviews: reviews, avgRating, ratingsLength})
         })
-
     }) 
 })
 
@@ -176,6 +178,13 @@ app.post('/delete-review', (req, res) => {
 })
 
 
+app.get('/user-profile', authenticate, (req, res) => {
+    const username = req.session.username
+
+    res.render('user_page', {username: username})
+})
+
+
 app.get("/logout", function(req, res) {
     if(session) {
         req.session.destroy(() => {
@@ -188,6 +197,7 @@ app.get("/logout", function(req, res) {
     }
    
    })
+
 
 // Launch Server
 app.listen(3000, () => {
