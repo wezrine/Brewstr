@@ -110,6 +110,10 @@ app.get('/brewery/:breweryId', authenticate, (req, res) => {
                 console.log(total)
             }
             var avgRating = Math.round(((total / ratings.length) + Number.EPSILON) * 100) / 100
+
+            if (isNaN(avgRating)) {
+                avgRating = 5
+            }
             
             res.render('brewery_details', {username: username, brewery: brewery, reviews: reviews, avgRating, ratingsLength})
         })

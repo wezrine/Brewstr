@@ -54,7 +54,7 @@ function displayBreweries(result) {
                 
                 <!-- Image -->
                 <div class="listing-item-image">
-                    <img src="images/listing-item-01.jpg" alt="">
+                    <img src="images/brewery${randomNumber()}.jpg" alt="">
                     <span class="tag">${brewery.brewery_type}</span>
                 </div>
                 
@@ -159,3 +159,6 @@ function abbreviateState(input) {
     }
 }
 
+function randomNumber() {
+    return Math.floor(Math.random() * 21)
+}
