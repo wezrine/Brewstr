@@ -115,6 +115,8 @@ app.get('/brewery/:breweryId', authenticate, (req, res) => {
     }) 
 })
 
+
+
 app.post('/save-brewery', (req, res) => {
     const username = req.session.username
     const name = req.body.breweryName
@@ -179,10 +181,17 @@ app.post('/delete-review', (req, res) => {
 
 
 app.get('/user-profile', authenticate, (req, res) => {
-    const username = req.session.username
 
-    res.render('user_page', {username: username})
+    const username = req.session.username
+    models.BreweryReview.findAll({
+        where: {
+            username: username
+        }
+    }).then(reviews => {
+        res.render('user_page', {username: username, reviews: reviews })
+    })
 })
+
 
 
 app.get("/logout", function(req, res) {
