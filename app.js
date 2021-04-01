@@ -8,6 +8,7 @@ const { Op } = require('sequelize')
 const authenticate = require('./authentication/auth')
 var fetch = require('node-fetch')
 
+// const deleteBrewery = require('./scripts/deleteBrewery')
 const fetchBreweryById = require('./scripts/fetchById.js')
 
 // Mustache Express
@@ -137,7 +138,7 @@ app.post('/save-brewery', (req, res) => {
     })
     breweries.save().then(savedBreweries => {
         console.log(savedBreweries)
-        res.send('saved')
+        res.redirect(req.get('referer'))
     })
 })
 
@@ -178,6 +179,21 @@ app.post('/delete-review', (req, res) => {
         res.redirect(req.get('referer'))
     })
 })
+
+app.post('/delete-brewery', (req, res) => {
+
+    const breweryId = req.body.breweryId
+    console.log(breweryId)
+
+    models.Brewery.destroy({
+        where: {
+            breweryId: breweryId
+        }}).then(deletedBrewery =>{
+            console.log(deletedBrewery)
+            res.redirect('/')
+        })
+})
+
 
 
 app.get('/user-profile', authenticate, (req, res) => {

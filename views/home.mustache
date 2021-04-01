@@ -33,7 +33,7 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="/"><img src="images/brewsterLogo1.png" alt=""></a>
+					<a href="/"><img src="images/brewstr-logo.png" alt=""></a>
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -63,8 +63,6 @@
 
 						<ul>
 							<li><a href="/user-profile"><i class="sl sl-icon-settings"></i> My Profile</a></li>
-							<!-- <li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> My Breweries</a></li> -->
-							<!-- <li><a href="dashboard-bookings.html"><i class="fa fa-calendar-check-o"></i> My Reviews</a></li> -->
 							<li><a href="/logout"><i class="sl sl-icon-power"></i> Logout</a></li>
 						</ul>
 
@@ -230,7 +228,12 @@
 							<span>{{street}} {{city}}, {{state}}</span>
 							<span class="tag home-type">{{type}}</span>
 						</div>
-						<span class="like-icon"></span>
+						<form method="POST" action="/delete-brewery">
+							<input type="hidden" value={{breweryId}} name="breweryId">
+							<span class="like-icon liked">
+								<button onclick="deleteBrewery(this.parentElement.parentElement)" class="like-icon"></button>
+							</span>
+						</form>
 					</div>
 				</a>
 			</div>
@@ -252,7 +255,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5 col-sm-6">
-				<img class="footer-logo" src="images/brewsterLogo1.png" alt="rewsterLogo">
+
+				<img class="footer-logo" src="images/brewstr-logo.png" alt="">
+
 				<br><br>
 				<p>Brewster is an app made for DigitalCrafts Backend Project. Add a description of the project here.</p>
 			</div>
@@ -307,7 +312,9 @@
 		<!-- Copyright -->
 		<div class="row">
 			<div class="col-md-12">
+
 				<div class="copyrights">© 2021. All Rights Reserved.</div>
+
 			</div>
 		</div>
 
@@ -401,6 +408,7 @@ $('.msps-slider').slick({
 </script>
 
 <script src="/scripts/homepageSearch.js"></script>
+<script src="/scripts/deleteBrewery.js"></script>
 
 </body>
 </html>
