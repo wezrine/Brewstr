@@ -81,6 +81,12 @@ body {
   height: 60%;
   width: 60%;
   padding-bottom: 30px;
+  padding-top: 14px;
+}
+
+.logoContainer {
+  display: block;
+  text-align: center;
 }
 
 button.btn:hover {
