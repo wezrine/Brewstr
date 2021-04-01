@@ -144,7 +144,7 @@
 				
 			<!-- Reviews -->
 			<div id="listing-reviews" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">Reviews <span>(12)</span></h3>
+				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">Reviews <span>({{ratingsLength}})</span></h3>
 
 				<!-- Rating Overview -->
 				<div class="rating-overview">
@@ -221,7 +221,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<label>Username:</label>
-									<input type="type" value="" name="username"/>
+									<input type="type" value="{{username}}" name="username"/>
 								</div>
 								<div>
 									<input type="hidden" value={{brewery.id}} name="brewery_id"/>

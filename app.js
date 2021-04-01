@@ -198,8 +198,6 @@ app.post('/delete-brewery', (req, res) => {
         })
 })
 
-
-
 app.get('/user-profile', authenticate, (req, res) => {
 
     const username = req.session.username
@@ -211,8 +209,6 @@ app.get('/user-profile', authenticate, (req, res) => {
         res.render('user_page', {username: username, reviews: reviews })
     })
 })
-
-
 
 app.get("/logout", function(req, res) {
     if(session) {
