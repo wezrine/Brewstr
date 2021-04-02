@@ -92,9 +92,3 @@ body {
 button.btn:hover {
   background-color: #ff4646;
 }
-
-.error-message {
-  color: red;
-  display: flex;
-  justify-content: center;
-}
