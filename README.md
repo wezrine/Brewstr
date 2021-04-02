@@ -8,7 +8,7 @@ https://brewstr.herokuapp.com/
 
 
 * **Purpose of the app:** <br>
-To help connect people who love exploring new cities with the best brewries near them. Brewstr connects the user to breweries across the country and allows the user to quickly access their favorite breweries by saving them to the user's personal list. Users may also leave a rating, write a review, and access the brewery's contact information.
+To help connect people who love exploring new cities with the best brewries near them. Brewstr connects the user to breweries across the country and allows the user to quickly access their favorite breweries by saving them to the user's personal list. Users may also leave a rating, write a review, and access the brewery's contact information. We wanted to make sure the website was straight to the point and easy to navigate!
 
 * **Features:** <br>
 Login and registration with authentication and encryption
