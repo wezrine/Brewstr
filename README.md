@@ -1,15 +1,16 @@
 # Brewstr: Brewery App
 App that allows users to search for breweries
 
-* **Live link:**
+# Live link:
+https://brewstr.herokuapp.com/
 
 ![](https://user-images.githubusercontent.com/71364408/113429689-f3426100-93a6-11eb-8e65-f7c1cc2c9c17.png)
 
 
-* **Purpose of the app:** <br/><br/>
+# Purpose of the app: <br/><br/>
 To help connect people who love exploring new cities find the best brewries near them. Brewstr connects the user to breweries across the country and allows the user to quickly access their favorite breweries by saving them to the user's personal list. Users may also leave a rating, write a review, and access the brewery's contact information.
 
-* **Languages/Tools Used:**
+# Languages/Tools Used:
 Javascript, HTML/CSS, Heroku, Github, VSCode, multiple APIs, Elephant sql, Postico <br/><br/>
 
 
