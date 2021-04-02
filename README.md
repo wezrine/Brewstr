@@ -12,11 +12,11 @@ To help connect people who love exploring new cities with the best brewries near
 
 * **Features:** <br>
 Login and registration with authentication and encryption
--Profile page showing all reviews
--Home page that shows all the users saved breweries and city search bar
--Search page to find top 20 breweries in your area
--Brewery page that shows the address, phone number , reviews and ratings of the individual brewery
--Profile page that shows all your reviews and ability to delete them
+  -Profile page showing all reviews
+  -Home page that shows all the users saved breweries and city search bar
+  -Search page to find top 20 breweries in your area
+  -Brewery page that shows the address, phone number , reviews and ratings of the individual brewery
+  -Profile page that shows all your reviews and ability to delete them
 
 * **How to use:**
 1. Register and log in or continue as a guest
