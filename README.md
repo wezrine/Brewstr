@@ -33,7 +33,7 @@ To help connect people who love exploring new cities with the best brewries near
 https://www.openbrewerydb.org/
 
 * **Languages/Tools Used:** <br>
-Javascript, HTML/CSS, Heroku, Github, VSCode, Open Brewery DB API, Elephant sql, Postico, Postman <br/><br/>
+Javascript, HTML/CSS, Heroku, Github, VSCode, Open Brewery DB API, Elephant sql, Postico, Postman, Postgres SQL, Git <br/><br/>
 
 
 ![](https://user-images.githubusercontent.com/71364408/113431958-8df06f00-93aa-11eb-9742-2d3f21d163df.png)<br/><br/>
