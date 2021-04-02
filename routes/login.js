@@ -27,9 +27,7 @@ router.post('/', (req,res) => {
           res.redirect('/');
         } else {
 
-          res.render('listings', {message: "Wrong account details"})
-          let signInButton = document.getElementById("signInButton")
-          signInButton.click()
+          res.render('login', {message: "Wrong account details"})
 
         }
       })
