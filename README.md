@@ -3,7 +3,7 @@ App that allows users to search for breweries
 
 * **Live link:**
 
-![](https://user-images.githubusercontent.com/71364408/113429689-f3426100-93a6-11eb-8e65-f7c1cc2c9c17.png)
+
 
 
 * **Purpose of the app:** <br/><br/>
@@ -20,7 +20,8 @@ Build Status
 Working Version 1.0
 
 Screenshots
-  
+ 
+![](https://user-images.githubusercontent.com/71364408/113429689-f3426100-93a6-11eb-8e65-f7c1cc2c9c17.png)
 
 Tech/Framework used
 
