@@ -4,7 +4,7 @@ Brewster is an app made for DigitalCrafts Backend Project. Brewstr connects the 
 * **Purpose of the app:** <br/><br/>
 To help connect people who love exploring new cities find the best brewries near them. 
 
-Live Website
+* **Live Website**
 https://brewstr.herokuapp.com/
 
 Build Status
