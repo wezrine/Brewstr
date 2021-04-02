@@ -1,13 +1,13 @@
 # Brewstr: Brewery App
 Brewster is an app made for DigitalCrafts Backend Project. Brewstr connects the user to breweries across the country and allows the user to quickly access their favorite breweries by saving them to the user's personal list. Users may also leave a rating, write a review, and access the brewery's contact information.
 
-# **Purpose of the app:** <br/><br/>
+# Purpose of the app:
 To help connect people who love exploring new cities find the best brewries near them. 
 
-# **Live Website**
+# Live Website
 https://brewstr.herokuapp.com/
 
-#Build Status
+# Build Status
 Working Version 1.0
 
 # Screenshots
