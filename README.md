@@ -1,29 +1,11 @@
-# BreweriesApp
+# Brewstr: Brewery App
 App that allows users to search for breweries
 
+* **Live link:**
 
-Brewery Search App 
-(yelp for breweries)
+![] (https://user-images.githubusercontent.com/71364408/113429689-f3426100-93a6-11eb-8e65-f7c1cc2c9c17.png)
 
--can we find an api for wineries?
 
-Minimum!!!
--login/register/continue as guest
--search by location/keyword
--show distance to brewery
--save breweries to user’s list
--go to brewery details
-—- add reviews
--footer for details of dev’s
+* **Purpose of the app:** <br/><br/>
+To help connect people who love exploring new cities find the best brewries near them.  
 
-Ideas (maybe implement)
-—wineries?
-—international
-—can’t view all breweries
-		(performance)
-—search by letter
-—map of users breweries
-—directions to brewery
-—floating footer
-—website thumbnail
-—add a location
