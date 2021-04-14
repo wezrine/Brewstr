@@ -47,8 +47,4 @@ Javascript, HTML/CSS, Heroku, Github, VSCode, Open Brewery DB API, Elephant sql,
 * **Credits:** 
 Huge thanks from our Team to https://www.openbrewerydb.org/ API for the free use of their API to make our brewery searching possible.  
 * **Developers:**
-[Summer Johnson](https://github.com/SJ-CODES), [Jorge Cuza](https://github.com/jorgecuza92), [William Ezrine](https://github.com/wezrine)
-
-
-
-# automatic-octo-robot
+ [William Ezrine](https://github.com/wezrine), [Summer Johnson](https://github.com/SJ-CODES), [Jorge Cuza](https://github.com/jorgecuza92)
